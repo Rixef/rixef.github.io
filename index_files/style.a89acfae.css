@@ -279,7 +279,8 @@ button.unstyled:focus {
     box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
     background-color: rgba(0, 0, 0, 0);
     width: 100%;
-    min-width: 410px
+    min-width: 410px;
+    max-width: 1000px
 }
 
 @media all and (max-width: 650px) {
