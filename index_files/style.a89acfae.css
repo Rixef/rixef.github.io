@@ -274,13 +274,7 @@ button.unstyled:focus {
 }
 
 #content {
-    background-image: url("");
-    margin: -25px 0px 0px -45px;
-    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
-    background-color: rgba(0, 0, 0, 0);
-    width: 100%;
-    min-width: 410px;
-    max-width: 1000px
+    
 }
 
 @media all and (max-width: 650px) {
@@ -794,8 +788,7 @@ nav li a:hover,nav li.active a {
 }
 
 #main.wide {
-    float: none;
-    width: 100%
+
 }
 
 #main.wide .box {
