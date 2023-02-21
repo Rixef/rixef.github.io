@@ -274,14 +274,12 @@ button.unstyled:focus {
 }
 
 #content {
-    background: #a7caf0 url(/img/main-bg.png) repeat;
-    margin: 75px auto auto;
-    -moz-box-shadow: #111 0 0 15px;
-    -webkit-box-shadow: #111 0 0 15px;
-    box-shadow: #111 0 0 15px;
+    background-image: url("");
+    margin: -25px 0px 0px -45px;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+    background-color: rgba(0, 0, 0, 0);
     width: 100%;
-    min-width: 410px;
-    max-width: 1000px
+    min-width: 410px
 }
 
 @media all and (max-width: 650px) {
