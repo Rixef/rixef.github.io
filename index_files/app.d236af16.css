@@ -3847,8 +3847,8 @@ button.btn, input[type=submit].btn {
     display: flex;
     margin-top: 24px;
     padding-right: 0;
-    border: 1px solid #E2EEFB;
-    box-shadow: 0 0 0 1px #a5cbf1
+    border: 0px solid #E2EEFB;
+    box-shadow: 0 0 0 0px #a5cbf1
 }
 
     .seedmap-layers-wrapper [data-simplebar] {
