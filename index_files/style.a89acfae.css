@@ -1,3 +1,9 @@
+html, body {
+  width:  100%;
+  height: 100%;
+  margin: 0;
+}
+
 .chunk-finders-tn-amethyst-icon_22 {
     background-image: url(https://www.chunkbase.com/img/pages/chunk-finders-tn-11.png);
     background-position: 0 0;
