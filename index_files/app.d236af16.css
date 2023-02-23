@@ -550,7 +550,7 @@ button.fancy-submit {
 #map-canvas {
     display: block;
     width: calc(100% + 30px);
-    margin: -178px 0 -1000px -30px;
+    margin: -290px 0 -1000px -30px;
     image-rendering: optimizeSpeed;
     image-rendering: crisp-edges;
     image-rendering: -moz-crisp-edges;
@@ -568,8 +568,8 @@ button.fancy-submit {
 
 @media all and (min-width:650px) {
     #main.wide #map-canvas {
-        width: calc(100% + 45px);
-        margin-left: -161px
+        width: calc(100% + 95px);
+        margin-left: -95px
     }
 }
 
