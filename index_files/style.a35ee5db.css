@@ -46,6 +46,13 @@ html, body {
     height: 22px
 }
 
+.chunk-finders-tn-desert-well-icon_22 {
+    background-image: url(https://www.chunkbase.com/img/pages/chunk-finders-tn-13.png);
+    background-position: 0 -132px;
+    width: 22px;
+    height: 22px
+}
+
 .chunk-finders-tn-dungeon-icon_22 {
     background-image: url(https://www.chunkbase.com/img/pages/chunk-finders-tn-11.png);
     background-position: 0 -132px;
@@ -196,6 +203,13 @@ html, body {
 .chunk-finders-tn-stronghold-icon_22 {
     background-image: url(https://www.chunkbase.com/img/pages/chunk-finders-tn-11.png);
     background-position: 0 -594px;
+    width: 22px;
+    height: 22px
+}
+
+.chunk-finders-tn-trail-ruin-icon_22 {
+    background-image: url(https://www.chunkbase.com/img/pages/chunk-finders-tn-13.png);
+    background-position: 0 -638px;
     width: 22px;
     height: 22px
 }
