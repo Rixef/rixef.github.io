@@ -1,3 +1,3 @@
 # rixef.github.io
 
-## This is the page of my projects
+## This is the landing page of my projects
