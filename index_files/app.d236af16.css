@@ -568,7 +568,7 @@ button.fancy-submit {
 
 @media all and (min-width:650px) {
     #main.wide #map-canvas {
-        width: calc(100% + 88px);
+        width: calc(100% + 105px);
         margin-left: -96px
     }
 }
