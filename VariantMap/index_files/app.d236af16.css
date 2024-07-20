@@ -451,7 +451,7 @@ button.fancy-submit:active{
 #map-canvas{
     display:block;
     width:calc(100% + 30px);
-    margin:-100px 0 -1000px -96px;
+    margin:-30px 0 -1000px -30px;
     image-rendering:optimizeSpeed;
     image-rendering:crisp-edges;
     image-rendering:-moz-crisp-edges;
@@ -476,7 +476,7 @@ html.theater-map #map-canvas{
 @media all and (min-width:650px){
     #main.wide #map-canvas{
         width:calc(100% + 105px);
-        margin-left:-96px
+        margin-left:-30px
     }
     html.theater-map #main.wide #map-canvas{
         width:calc(100% + 90px);
