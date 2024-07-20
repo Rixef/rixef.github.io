@@ -459,29 +459,29 @@ button.fancy-submit:active{
     image-rendering:-webkit-optimize-contrast;
     -ms-interpolation-mode:nearest-neighbor
 }
-html.theater-map #map-canvas{
+/*html.theater-map #map-canvas{
     width:calc(100% + 60px);
     margin-right:-30px
-}
+}*/
 @media all and (max-width:500px){
     #map-canvas{
         width:calc(100% + 16px);
         margin-left:-16px
     }
-    html.theater-map #map-canvas{
+    /*html.theater-map #map-canvas{
         width:calc(100% + 32px);
         margin-right:-16px
-    }
+    }*/
 }
 @media all and (min-width:650px){
     #main.wide #map-canvas{
         width:calc(100% + 105px);
         margin-left:-30px
     }
-    html.theater-map #main.wide #map-canvas{
+    /*html.theater-map #main.wide #map-canvas{
         width:calc(100% + 90px);
         margin-right:-45px
-    }
+    }*/
 }
 #map-goto{
     flex-grow:5
@@ -3350,7 +3350,7 @@ button.btn.btn-mini,input[type=submit].btn.btn-mini{
 [data-tippy-root][data-tippy-root]{
     max-width:calc(100vw - 26px)
 }
-html.theater-map,html.theater-map body{
+/*html.theater-map,html.theater-map body{
     margin:0;
     padding:0
 }
@@ -3369,7 +3369,7 @@ html.theater-map #main .boxheader{
     border-width:0;
     margin:0;
     margin-left:-1px
-}
+}*/
 .poi-complete-label{
     display:flex;
     align-items:center;
