@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Neumorphism</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style type="text/css">
+	body
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: auto;
+		background-color: #2e2e2e;
+		margin: 0;
+		font-family: Arial, sans-serif;
+		color: #f7f7f7;
+		font-size: 18px;
+		overflow-x: hidden;
+		position: relative;
+		padding-top: 1px;
+	}
+	
+	.secondary
+	{
+		color: #10AB7C;
+	}
+	
+	.info
+	{
+		color: #5bc0de;
+	}
+	
+	.warning
+	{
+		color: #f0ad4e;
+	}
+	
+	.success
+	{
+		color: #5cb85c;
+	}
+	
+	.danger
+	{
+		color: #d9534f;
+	}
+	
+	.light
+	{
+		color: #f7f7f7;
+	}
+	
+	/* BANNER CSS */
+	.banner img
+	{
+		/* display: block; */
+		/* margin-left: 100px; */
+		/* margin-right: auto; */
+		width: 100%;
+	}
+	
+	/* NAVBAR/STICKY NAVBAR CSS */
+	.navbar
+	{
+		overflow: hidden;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		width: 100%;
+		/*max-width: 800px;*/
+		/* height: 60px; */
+		background: #2e2e2e;
+		border-radius: 12px;
+		/*box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a;*/
+		padding: 10px;
+		z-index: 99;
+		margin-top: -5px;
+	}
+	
+	.navbar a
+	{
+		color: #fff;
+		text-decoration: none;
+		text-align: center;
+		/*padding: 10px 20px;*/
+		padding: 14px;
+		border-radius: 12px;
+		width: 300px;
+		transition: all 0.3s ease;
+	}
+
+	.navbar a:hover
+	{
+		background: #444;
+		box-shadow: inset 5px 5px 10px #1a1a1a, inset -5px -5px 10px #4a4a4a;
+	}
+
+	/* Page content */
+	.content
+	{
+		padding: 16px;
+	}
+
+	/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+	.sticky
+	{
+		position: fixed;
+		top: 0;
+		width: 100%;
+	}
+
+	/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+	.sticky + .content
+	{
+		padding-top: 60px;
+	}
+	
+	.scrollablepage
+	{
+		padding: 15px;
+		height: 2000px; /* Just to create some scrollable content */
+	}
+
+	/* BUTTONS CSS */
+	.neumorphic-button
+	{
+		background: #333;
+		border: none;
+		border-radius: 12px;
+		box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a;
+		color: #fff;
+		padding: 15px 30px;
+		font-size: 18px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		margin-bottom: 20px;
+	}
+	
+	.neumorphic-button-flat
+	{
+		background: #333;
+		border: none;
+		border-radius: 12px;
+		/* box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a; */
+		color: #fff;
+		padding: 15px 30px;
+		font-size: 18px;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		margin-bottom: 20px;
+	}
+	
+	.neumorphic-button-pill
+	{
+		background: #333;
+		border: none;
+		border-radius: 100px;
+		box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a;
+		color: #fff;
+		padding: 15px 30px;
+		font-size: 18px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		margin-bottom: 20px;
+	}
+	
+	.neumorphic-button-pill-flat
+	{
+		background: #333;
+		border: none;
+		border-radius: 100px;
+		/* box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a; */
+		color: #fff;
+		padding: 15px 30px;
+		font-size: 18px;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		margin-bottom: 20px;
+	}
+
+	.neumorphic-button:active,
+	.neumorphic-button-flat:active,
+	.neumorphic-button-pill-flat:active,
+	.neumorphic-button-pill:active
+	{
+		box-shadow: inset 5px 5px 10px #1a1a1a, inset -5px -5px 10px #4a4a4a;
+	}
+
+	/* TEXTBOX CSS */
+	.neumorphic-textbox
+	{
+		background: #333;
+		border: none;
+		border-radius: 12px;
+		box-shadow: inset 5px 5px 10px #1a1a1a, inset -5px -5px 10px #4a4a4a;
+		color: #fff;
+		padding: 15px 20px;
+		font-size: 18px;
+		outline: none;
+		transition: all 0.3s ease;
+	}
+
+	.neumorphic-textbox:focus
+	{
+		/*if you want the textbox to rise up on focus*/
+		/*box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a;*/
+		/*transition: all 0.3s ease; */
+	}
+
+	/* RADIO BUTTON CSS */
+	.neumorphic-radio
+	{
+		appearance: none;
+		background: #333;
+		border: none;
+		border-radius: 50%;
+		width: 20px;
+		height: 20px;
+		box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		margin: 10px;
+	}
+
+	.neumorphic-radio:checked
+	{
+		box-shadow: inset 5px 5px 10px #1a1a1a, inset -5px -5px 10px #4a4a4a;
+		background: #555;
+	}
+    
+	/* PANELS CSS */
+    .neumorphic-panel
+	{
+		background: #333;
+		border-radius: 20px;
+		box-shadow: 10px 10px 20px #1a1a1a, -10px -10px 20px #4a4a4a;
+		padding: 30px;
+		width: 800px;
+		max-width: 1000px;
+		height: auto;
+		margin-top: 20px;
+		display: inline-block;
+	}
+	
+	.neumorphic-panel-noshadow
+	{
+		background: inherit;
+		border-radius: 20px;
+		/*box-shadow: 10px 10px 20px #1a1a1a, -10px -10px 20px #4a4a4a;*/
+		padding: 30px;
+		width: 800px;
+		max-width: 1000px;
+		height: auto;
+		margin-top: 5px;
+		display: inline-block;
+	}
+	
+	.neumorphic-panel-inset
+	{
+		background: #333;
+		border-radius: 12px;
+		box-shadow: inset 5px 5px 10px #1a1a1a, inset -5px -5px 10px #4a4a4a;
+		padding: 20px;
+		width: 800px;
+		max-width: 1000px;
+		height: auto;
+		color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		display: inline-block;
+		margin-left: -20px;
+	}
+	
+	/* SEPERATORS CSS */
+	.neumorphic-seperator
+	{
+		/*outline-style: solid;
+		outline-color: #00ffff;*/
+		border-top: 1px solid #00ffff;
+		width: 107.2%;
+		position: relative;
+		left: -30px;
+	}
+	
+	.neumorphic-seperator-vertical-left
+	{
+		/*outline-style: solid;
+		outline-color: #00ffff;*/
+		border-left: 1px solid #00ffff;
+		height: 107.2%;
+		position: absolute;
+		z-index: -1;
+	}
+	
+	.neumorphic-seperator-vertical-right
+	{
+		/*outline-style: solid;
+		outline-color: #00ffff;*/
+		border-right: 1px solid #00ffff;
+		height: 107.2%;
+		position: absolute;
+		z-index: -1;
+	}
+	
+	.neumorphic-seperator-vertical-center
+	{
+		/*outline-style: solid;
+		outline-color: #00ffff;*/
+		border-left: 1px solid #00ffff;
+		height: 107.2%;
+		position: absolute;
+		left: 50%;
+		margin-left: -3px;
+		top: 0;
+	}
+	
+	/* these ones are specifically for inset panels and such */
+	.neumorphic-seperator-inset
+	{
+		/*outline-style: solid;
+		outline-color: #00ffff;*/
+		border-top: 1px solid #00ffff;
+		width: 100%;
+		position: relative;
+		left: 0px;
+	}
+    
+	/* CHECKBOX CSS */
+    .neumorphic-checkbox
+	{
+		position: relative;
+		display: inline-block;
+		width: 50px;
+		height: 25px;
+		background: #333;
+		border-radius: 25px;
+		box-shadow: inset 5px 5px 10px #1a1a1a, inset -5px -5px 10px #4a4a4a;
+		margin-bottom: 20px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		/*background: linear-gradient(to right, #00ffff 100%, #00ffff 50%, #333 50%, #333 100%);*/
+	}
+
+	.neumorphic-checkbox input
+	{
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+
+	.neumorphic-checkbox span
+	{
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		width: 21px;
+		height: 21px;
+		background: #333;
+		border-radius: 50%;
+		box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a;
+		transition: all 0.3s ease;
+	}
+
+	.neumorphic-checkbox input:checked + span
+	{
+		left: 26px;
+		background: linear-gradient(to right, #00ffff 100%, #00ffff 50%, #333 50%, #333 100%);
+	}
+    
+	/* SLIDER CSS */
+	.neumorphic-slider
+	{
+		-webkit-appearance: none;
+		appearance: none;
+		width: 100%;
+		height: 15px;
+		background: #333;
+		border-radius: 12px;
+		box-shadow: inset 5px 5px 10px #1a1a1a, inset -5px -5px 10px #4a4a4a;
+		outline: none;
+		transition: all 0.3s ease;
+		background: linear-gradient(to right, #00ffff 0%, #00ffff 50%, #333 50%, #333 100%);
+	}
+
+	.neumorphic-slider::-webkit-slider-thumb
+	{
+		-webkit-appearance: none;
+		appearance: none;
+		width: 25px;
+		height: 25px;
+		background: #4a4a4a;
+		border-radius: 50%;
+		box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.neumorphic-slider::-moz-range-thumb
+	{
+		width: 25px;
+		height: 25px;
+		background: #4a4a4a;
+		border-radius: 50%;
+		box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+	
+	/* COLLAPSIBLES CSS */
+	.neumorphic-collapsible
+	{
+		background: inherit;
+		border-radius: 12px;
+		/*box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a;*/
+		color: #fff;
+		padding: 10px;
+		width: auto;
+		text-align: left;
+		cursor: pointer;
+		font-size: 18px;
+		/*margin-bottom: 20px;*/
+	}
+	
+	.active
+	{
+		/*box-shadow: inset 5px 5px 10px #1a1a1a, inset -5px -5px 10px #4a4a4a;*/
+		display: block;
+	}
+	
+	.neumorphic-collapsible:before
+	{
+		content: "\FF0B"; /*full width unicode (+) sign*/
+		color: white;
+		font-weight: bold;
+		float: right;
+		margin-left: 5px;
+	}
+
+	.active:before
+	{
+		content: "\FF0D"; /* full width unicode character for "minus" sign (-) */
+	}
+
+	.content
+	{
+		/*display: block;*/
+		/*padding: 0 5px;*/
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.3s ease-in-out;
+	}
+	
+	/* CAROUSEL CSS */
+	.neumorphic-carousel
+	{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		width: 100%;
+		max-width: 1000px;
+		height: 500px;
+		overflow: hidden;
+		border-radius: 12px;
+		box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a;
+		background-color: #333;
+		padding: 30px;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	.neumorphic-carousel img
+	{
+		width: auto;
+		height: 500px;
+		object-fit: cover;
+		transition: transform 0.5s ease;
+	}
+
+	.neumorphic-carousel-buttons
+	{
+		position: absolute;
+		top: 50%;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		transform: translateY(-50%);
+	}
+
+	.neumorphic-carousel-button
+	{
+		background: #333;
+		border: none;
+		border-radius: 50%;
+		box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a;
+		color: #fff;
+		padding: 10px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.neumorphic-carousel-button:hover
+	{
+		box-shadow: inset 5px 5px 10px #1a1a1a, inset -5px -5px 10px #4a4a4a;
+	}
+	
+	/* MODAL CSS */
+	.neumorphic-modal
+	{
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: inherit;
+		background-color: rgba(33,33,33,0.95);
+		border-radius: 12px;
+		/* box-shadow: inset 5px 5px 10px #1a1a1a, inset -5px -5px 10px #4a4a4a; */
+		padding: 20px;
+		width: 100%;
+		height: 100%;
+		/* max-width: 80%; */
+		color: #fff;
+		z-index: 9998;
+		display: none;
+	}
+
+	.neumorphic-modal.show
+	{
+		display: block;
+	}
+    </style>
+</head>
+
+<body>
+	<!-- BANNER HTML -->
+	<div id="banner" class="banner">
+		<img src=".\\img\RixefCircuitWhiteGlow21600x400.png" alt="Rixef Banner">
+	</div>
+	
+	<!-- NAVBAR/STICKY NAVBAR HTML -->
+	<div style="height:60px; width: 100%;">
+		<div id="navbar" class="navbar">
+			<a href="#">Home</a>
+			<a href="#">Variant</a>
+			<!-- <a href="#"></a> -->
+			<!-- <a href="#"></a> -->
+		</div>
+	</div>
+	
+	<!-- <span class="neumorphic-seperator-vertical-left neumorphic-seperator-vertical-right" style="height: 100%; padding: 40%; left: 10%;"> -->
+	<!-- </span> -->
+	
+	<h1 class="info" style="font-size: 60px; margin-bottom: 0px;">Panels</h1>
+	<br>
+	<div class="neumorphic-panel">
+	<h1 style="font-size: 30px; margin-bottom: 30px; margin-top: -10px; text-align: center;">
+		Outset Panel
+	</h1>
+		Buttons
+		<br>
+		<br>
+		<button class="neumorphic-button" onclick="buttonClick()">Click Me</button>
+		<button class="neumorphic-button-flat" onclick="buttonClick()">Click Me</button>
+		<button class="neumorphic-button-pill" onclick="buttonClick()">Click Me</button>
+		<button class="neumorphic-button-pill-flat" onclick="buttonClick()">Click Me</button>
+		<hr class="neumorphic-seperator">
+		<br>
+		
+		Textbox
+		<br>
+		<br>
+    	<input type="text" class="neumorphic-textbox" placeholder="Enter text here">
+		<br>
+		<br>
+		
+		<hr class="neumorphic-seperator">
+		
+		<span>
+			Radio Buttons
+			<br><br>
+			<input type="radio" class="neumorphic-radio" name="option">
+			<input type="radio" class="neumorphic-radio" name="option">
+			<input type="radio" class="neumorphic-radio" name="option">
+		</span>
+		<br>
+		<br>
+		
+		<hr class="neumorphic-seperator">
+		
+		Checkbox
+		<br>
+		<br>
+		<label class="neumorphic-checkbox">
+			<input type="checkbox" onclick="">
+			<span></span>
+		</label>
+		<br>
+		<br>
+		
+		<hr class="neumorphic-seperator">
+		
+		Slider
+		<br>
+		<br>
+		<input type="range" class="neumorphic-slider">
+    </div>
+	<br>
+	<br>
+	
+	<div class="neumorphic-panel-inset">
+		<h1 style="font-size: 30px; margin-bottom: 30px; margin-top: -10px; text-align: center;">Inset Panel</h1>
+		<hr class="neumorphic-seperator-inset">
+		<p>Inset Seperators<p>
+		<hr class="neumorphic-seperator-inset">
+	</div>
+	<br>
+	
+	<div class="neumorphic-panel-noshadow">
+	<h1 style="font-size: 30px; margin-bottom: 30px; margin-top: -10px; text-align: center;">Flat Panel</h1>
+	<hr class="neumorphic-seperator">
+	<p>Seperators</p>
+	<hr class="neumorphic-seperator">
+	</div>
+	<br>
+	
+	<div class="neumorphic-panel-inset" style="width: 880px;">
+		<div class="neumorphic-panel" style="margin-left: 0px; margin-top: 10px; margin-bottom: 10px;">
+			<h1 style="font-size: 30px; margin-bottom: 30px; margin-top: 0px; text-align: center;">Outset Panel in an Inset Panel</h1>
+			<br>
+			<br>
+			<br>
+		</div>
+	</div>
+	<br>
+	
+	<div class="neumorphic-panel" style="width: 840px;">
+		<div class="neumorphic-panel-inset" style="margin-left: 0px; margin-top: 0px; margin-bottom: 0px;">
+			<h1 style="font-size: 30px; margin-bottom: 30px; margin-top: 0px; text-align: center;">Inset Panel in an Outset Panel</h1>
+			<br>
+			<br>
+			<br>
+		</div>
+	</div>
+	<br>
+	
+	<div class="neumorphic-panel" style="width: 840px;">
+		<div class="neumorphic-panel" style="margin-left: -10px; margin-top: 0px; margin-bottom: 0px;">
+			<h1 style="font-size: 30px; margin-bottom: 30px; margin-top: 0px; text-align: center;">Outset Panel in an Outset Panel</h1>
+			<br>
+			<br>
+			<br>
+		</div>
+	</div>
+	<br>
+	
+	<div class="neumorphic-panel-inset" style="width: 840px;">
+		<div class="neumorphic-panel-inset" style="margin-left: 0px; margin-top: 0px; margin-bottom: 0px;">
+			<h1 style="font-size: 30px; margin-bottom: 30px; margin-top: 0px; text-align: center;">Inset Panel in an Inset Panel</h1>
+			<br>
+			<br>
+			<br>
+		</div>
+	</div>
+	<br>
+	
+	<div class="neumorphic-panel-inset" style="width: 840px;">
+		<div class="neumorphic-panel-inset" style="width: 1000px; margin-left: -100px; margin-top: 0px; margin-bottom: 0px;">
+			<h1 style="font-size: 30px; margin-bottom: 30px; margin-top: 0px; text-align: center;">
+				Inset Panel in an Inset Panel<br>
+				with elongated quarry look
+			</h1>
+			<br>
+			<br>
+			<br>
+		</div>
+	</div>
+	<br>
+	
+	<hr class="neumorphic-seperator">
+	<h1 class="info" style="font-size: 60px; margin-bottom: 0px;">Collapsibles</h1>
+	<br>
+	<div class="neumorphic-panel-noshadow neumorphic-collapsible">
+		Click to expand
+		<div class="content">
+			<p>
+			This is the collapsible content.<br>
+			You can show/hide this section.<br>
+			This is going to be some longer content.
+			To make sure the page is scrollable.
+			Or at least to help it along with that.
+			BLARGEDY
+			ARGEDY
+			ARGLE
+			</p>
+		</div>
+	</div>
+	<br>
+	<div class="neumorphic-panel neumorphic-collapsible">
+		Click to expand
+		<div class="content">
+			<p>
+			This is the collapsible content.<br>
+			You can show/hide this section.<br>
+			This is going to be some longer content.
+			To make sure the page is scrollable.
+			Or at least to help it along with that.
+			BLARGEDY
+			ARGEDY
+			ARGLE
+			</p>
+		</div>
+	</div>
+	<br>
+	<div class="neumorphic-panel">
+		<div class="neumorphic-panel-noshadow neumorphic-collapsible">
+			Click to expand
+			<div class="content">
+				<p>
+				This is the collapsible content.<br>
+				You can show/hide this section.<br>
+				This is going to be some longer content.
+				To make sure the page is scrollable.
+				Or at least to help it along with that.
+				BLARGEDY
+				ARGEDY
+				ARGLE
+				</p>
+			</div>
+		</div>
+		<hr class="neumorphic-seperator">
+		<div class="neumorphic-panel-noshadow neumorphic-collapsible">
+			Click to expand
+			<div class="content">
+				<p>
+				This is the collapsible content.<br>
+				You can show/hide this section.<br>
+				This is going to be some longer content.
+				To make sure the page is scrollable.
+				Or at least to help it along with that.
+				BLARGEDY
+				ARGEDY
+				ARGLE
+				</p>
+			</div>
+		</div>
+		<hr class="neumorphic-seperator">
+		<div class="neumorphic-panel-noshadow neumorphic-collapsible">
+			Click to expand
+			<div class="content">
+				<p>
+				This is the collapsible content.<br>
+				You can show/hide this section.<br>
+				This is going to be some longer content.
+				To make sure the page is scrollable.
+				Or at least to help it along with that.
+				BLARGEDY
+				ARGEDY
+				ARGLE
+				</p>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	
+	<hr class="neumorphic-seperator">
+	<h1 class="info" style="font-size: 60px; margin-bottom: 0px;">Carousels</h1>
+	<br>
+	<div class="neumorphic-carousel">
+        <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/7/75/Minecraft_Earth_Grass_Block.png/revision/latest?cb=20210916115653/800x800?text=Slide+1" alt="Slide 1">
+        <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/da/Great_Hammer_%28MCD%29.png/revision/latest?cb=20201219072405/800x800?text=Slide+2" alt="Slide 2" style="display:none;">
+        <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/c/c6/DataValuesPE.png/revision/latest/scale-to-width-down/1000?cb=20210123175535/800x800?text=Slide+3" alt="Slide 3" style="display:none;">
+        <div class="neumorphic-carousel-buttons">
+            <button class="neumorphic-carousel-button" id="prev">&lt;</button>
+            <button class="neumorphic-carousel-button" id="next">&gt;</button>
+        </div>
+    </div>
+	<br>
+	<br>
+	
+	<hr class="neumorphic-seperator">
+	<h1 class="info" style="font-size: 60px; margin-bottom: 0px;">Modal</h1>
+	<br>
+	<button class="neumorphic-button" id="openModal">Open Modal</button>
+    <div class="neumorphic-modal" id="myModal">
+		<div class="neumorphic-panel" style="width: 840px; margin-top: 10%; margin-left: 20%;">
+			<div class="neumorphic-panel-inset" style="margin-left: 0px; margin-top: 0px; margin-bottom: 0px;">
+				<h2>Neumorphic Modal</h2>
+				<hr class="neumorphic-seperator-inset">
+				<p>This is a modal dialogue with a dark neumorphic style.</p>
+				<br>
+				<br>
+				<br>
+				<hr class="neumorphic-seperator-inset">
+				<br>
+				<button class="neumorphic-button" id="closeModal">Close Modal</button>
+			</div>
+		</div>
+    </div>
+	
+	<!-- <div class="scrollablepage"> -->
+        <!-- <p>Scroll down to see the sticky effect.</p> -->
+        <!-- <!-- Add more content here -->
+    <!-- </div> -->
+	
+    <script src="script.js"></script>
+</body>
+
+<script>
+	//STICKY NAVBAR CODE
+	// When the user scrolls the page, execute myFunction
+	window.onscroll = function() {myFunction()};
+	// Get the navbar
+	var navbar = document.getElementById("navbar");
+	// Get the offset position of the navbar
+	var sticky = navbar.offsetTop;
+	// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+	function myFunction()
+	{
+		if (window.pageYOffset >= sticky)
+		{
+			navbar.classList.add("sticky")
+			navbar.style.boxShadow = '5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a';
+			navbar.style.background = '#333';
+			//navbar.style.width = 100%;
+		}
+		else
+		{
+			navbar.classList.remove("sticky");
+			navbar.style.boxShadow = '';
+			navbar.style.background = '#2e2e2e';
+		}
+	}
+
+	//BUTTON CODE
+    //function buttonClick()
+	//{
+		//alert('Button clicked!');
+	//}
+	
+	//SLIDER CODE
+	document.querySelector(".neumorphic-slider").oninput = function()
+	{
+		this.style.background = 'linear-gradient(to right, #00ffff 0%, #00ffff '+this.value +'%, #333 ' + this.value + '%, #333 100%)'
+	};
+
+	//CHECKBOX CODE
+	//const dnmcheckbox = document.querySelector('.neumorphic-checkbox > input');
+
+	document.querySelector('.neumorphic-checkbox > input').addEventListener('change', (event) =>
+	{
+		if (event.currentTarget.checked)
+		{
+			//alert('checked');
+		}
+		else
+		{
+			//alert('unchecked');
+		}
+	})
+	
+	//COLLAPSIBLE CODE
+	var coll = document.getElementsByClassName("neumorphic-collapsible");
+	var i;
+
+	for (i = 0; i < coll.length; i++)
+	{
+		coll[i].addEventListener("click", function()
+		{
+			this.classList.toggle("active");
+			var content = this.firstChild.nextElementSibling;
+			if (content.style.maxHeight)
+			{
+				content.style.maxHeight = null;
+			}
+			else
+			{
+				content.style.maxHeight = "800px";
+			}
+		});
+	}
+	
+	//CAROUSEL CODE
+	const slides = document.querySelectorAll('.neumorphic-carousel img');
+	let currentSlide = 0;
+
+	document.getElementById('prev').addEventListener('click', () =>
+	{
+		slides[currentSlide].style.display = 'none';
+		currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+		slides[currentSlide].style.display = 'block';
+	});
+	
+	document.getElementById('next').addEventListener('click', () =>
+	{
+		slides[currentSlide].style.display = 'none';
+		currentSlide = (currentSlide + 1) % slides.length;
+		slides[currentSlide].style.display = 'block';
+	});
+	
+	//MODAL CODE
+	var modal = document.getElementById("myModal");
+	
+	document.getElementById('openModal').addEventListener('click', function()
+	{
+		document.getElementById('myModal').classList.add('show');
+	});
+
+	document.getElementById('closeModal').addEventListener('click', function()
+	{
+		document.getElementById('myModal').classList.remove('show');
+	});
+	
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event)
+	{
+		if (event.target == modal)
+		{
+			modal.classList.remove('show')
+		}
+	}
+</script>
+
+</html>
