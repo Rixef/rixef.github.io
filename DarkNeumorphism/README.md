@@ -7,4 +7,4 @@ The CSS is at the top of the document, the HTML is in the middle part(just after
 
 So if you want to throw it into a .css, .html, and .js file you can do so with ease.
 
-There's an example HTML element for all of the compoonents so far.
+There's an example HTML element for all of the components so far.
