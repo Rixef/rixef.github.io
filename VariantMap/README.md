@@ -1,4 +1,4 @@
-# rixef.github.io
+# [rixef.github.io/VariantMap/#](https://rixef.github.io/VariantMap/#)
 
 ## Rix, what is this?
 This is a reversed and edited version of the popular [ChunkBase Seed Map](https://www.chunkbase.com/apps/seed-map) for use in my Minecraft Bedrock client, Variant. I wanted the info that was being drawn onto the canvas-map but couldn't get it through the ChunkBase seed map with ease 'cause y'know, it's being drawn on, so I reversed that whole page, weeded out all the stuff I didn't need, and then plugged some "variable yoinkers" into the spots in the obfuscated JS on the page that I could then pass from JS->C++ for my client to use for things like Map Teleport and Locator Map(shows your location on the map). 
