@@ -56,10 +56,10 @@ var i;
 
 for (i = 0; i < coll.length; i++)
 {
-	coll[i].addEventListener("click", function()
+	coll[i].firstElementChild.addEventListener("click", function()
 	{
-		this.classList.toggle("active");
-		var content = this.querySelector('div.content');
+		this.parentElement.classList.toggle("active");
+		var content = this.parentElement.querySelector('div.content');
 		if (content.style.maxHeight)
 		{
 			content.style.maxHeight = null;
