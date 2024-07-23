@@ -66,7 +66,7 @@ for (i = 0; i < coll.length; i++)
 		}
 		else
 		{
-			content.style.maxHeight = "800px";
+			content.style.maxHeight = "2000px";
 		}
 	});
 }
