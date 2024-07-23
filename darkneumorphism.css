@@ -429,7 +429,7 @@ body
 	content: "\FF0B"; /*full width unicode (+) sign*/
 	color: white;
 	font-weight: bold;
-	float: right;
+	float: left;
 	margin-left: 5px;
 }
 
@@ -469,6 +469,7 @@ body
 
 .neumorphic-carousel img
 {
+	border-radius: 12px;
 	width: auto;
 	height: 500px;
 	object-fit: cover;
