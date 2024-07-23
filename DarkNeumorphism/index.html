@@ -441,16 +441,17 @@
 		float: right;
 		margin-left: 5px;
 	}
-
+	
 	.active:before
 	{
 		content: "\FF0D"; /* full width unicode character for "minus" sign (-) */
 	}
-
+	
 	.content
 	{
 		/*display: block;*/
 		/*padding: 0 5px;*/
+		cursor: default;
 		max-height: 0;
 		overflow: hidden;
 		transition: max-height 0.3s ease-in-out;
@@ -939,10 +940,10 @@
 
 	for (i = 0; i < coll.length; i++)
 	{
-		coll[i].addEventListener("click", function()
+		coll[i].firstElementChild.addEventListener("click", function()
 		{
-			this.classList.toggle("active");
-			var content = this.firstChild.nextElementSibling;
+			this.parentElement.classList.toggle("active");
+			var content = this.parentElement.querySelector('div.content');
 			if (content.style.maxHeight)
 			{
 				content.style.maxHeight = null;
