@@ -555,6 +555,115 @@
 	{
 		box-shadow: inset 5px 5px 10px #1a1a1a, inset -5px -5px 10px #4a4a4a;
 	}
+
+	/* TEXTAREA CSS */
+	/* inset textarea */
+	.neumorphic-textarea-inset
+	{
+		background-color: #2e2e2e;
+		color: #f7f7f7;
+		outline: none;
+		border: none;
+		padding: 10px;
+		border-radius: 8px;
+		margin: 10px;
+		box-shadow: inset 5px 5px 10px #1a1a1a, inset -5px -5px 10px #4a4a4a;
+		width: 800px;
+		height: 100px;
+	}
+
+	/* Custom scrollbar */
+	.neumorphic-textarea-inset::-webkit-scrollbar
+	{
+		width: 12px;
+		cursor: default;
+	}
+
+	.neumorphic-textarea-inset::-webkit-scrollbar-track
+	{
+		background: #2e2e2e;
+		cursor: default;
+		box-shadow: inset 5px 5px 10px #1a1a1a, inset -5px -5px 10px #4a4a4a;
+	}
+
+	.neumorphic-textarea-inset::-webkit-scrollbar-thumb
+	{
+		background-color: #10AB7C;
+		border-radius: 6px;
+		cursor: default;
+	}
+	
+	/* outset textarea */
+	.neumorphic-textarea-outset
+	{
+		background-color: #2e2e2e;
+		color: #f7f7f7;
+		outline: none;
+		border: none;
+		padding: 10px;
+		border-radius: 8px;
+		margin: 10px;
+		box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a;
+		width: 800px;
+		height: 100px;
+	}
+
+	/* Custom scrollbar */
+	.neumorphic-textarea-outset::-webkit-scrollbar
+	{
+		width: 12px;
+		cursor: default;
+	}
+
+	.neumorphic-textarea-outset::-webkit-scrollbar-track
+	{
+		background: #2e2e2e;
+		cursor: default;
+		box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a;
+	}
+
+	.neumorphic-textarea-outset::-webkit-scrollbar-thumb
+	{
+		background-color: #10AB7C;
+		border-radius: 6px;
+		cursor: default;
+	}
+	
+	/* flat textarea */
+	.neumorphic-textarea-flat
+	{
+		background-color: #2e2e2e;
+		color: #f7f7f7;
+		outline: none;
+		border: none;
+		padding: 10px;
+		border-radius: 8px;
+		margin: 10px;
+		/* box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a; */
+		width: 800px;
+		height: 100px;
+	}
+
+	/* Custom scrollbar */
+	.neumorphic-textarea-flat::-webkit-scrollbar
+	{
+		width: 12px;
+		cursor: default;
+	}
+
+	.neumorphic-textarea-flat::-webkit-scrollbar-track
+	{
+		background: #2e2e2e;
+		cursor: default;
+		/* box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #4a4a4a; */
+	}
+
+	.neumorphic-textarea-flat::-webkit-scrollbar-thumb
+	{
+		background-color: #10AB7C;
+		border-radius: 6px;
+		cursor: default;
+	}
     </style>
 </head>
 
@@ -826,6 +935,39 @@
     </div>
 	<br>
 	<br>
+
+	<hr class="neumorphic-seperator">
+	<h1 class="info" style="font-size: 60px; margin-bottom: 0px;">Textareas</h1>
+	<br>
+	<textarea class="neumorphic-textarea-inset">INSET TEXTAREA
+	
+blargedy
+argedy
+argle
+shmargedy
+argedy
+argle
+	</textarea>
+	<br>
+	<textarea class="neumorphic-textarea-outset">OUTSET TEXTAREA
+	
+blargedy
+argedy
+argle
+shmargedy
+argedy
+argle
+	</textarea>
+	<br>
+	<textarea class="neumorphic-textarea-flat">FLAT TEXTAREA
+	
+blargedy
+argedy
+argle
+shmargedy
+argedy
+argle
+	</textarea>
 	
 	<hr class="neumorphic-seperator">
 	<h1 class="info" style="font-size: 60px; margin-bottom: 0px;">Social Media</h1>
