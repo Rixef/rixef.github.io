@@ -33,6 +33,75 @@
          --ht-color-highlight-upvote-2: #2236961a;
          }
       </style>
+      <style>
+            #myCanvas {
+                display: block;
+                background-color: rgb(211, 187, 148);
+            }
+            
+            #navMenu ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+            
+            #navMenu li {
+                display: inline;
+                padding: 15px;
+            }
+            
+            #navMenu a {
+                color: white;
+                text-decoration: none;
+            }
+            
+            .hidden {
+                top: -50px;
+            }
+            
+            #navMenu {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0);
+                color: white;
+                text-align: center;
+                transition: top 0.3s, opacity 0.3s;
+                opacity: 0.5;
+            }
+            
+            #navMenu.visible {
+                opacity: 1; /* Change opacity to 1 to fade in */
+            }
+            
+            .panel {
+                position: fixed;
+                top: 30px;
+                width: 100%;
+                height: 0;
+                background-color: rgba(0, 0, 0, 0.9);
+                color: white;
+                overflow: hidden;
+                transition: height 0.3s;
+            }
+            
+            .panel.open {
+                height: 280px;
+            }
+            
+            .container {
+                display: grid;
+                grid-template-columns: repeat(5, 145px);
+                grid-template-rows: repeat(6, 36px);
+                gap: 4px;
+            }
+            
+            .cbbutton {
+                width: 145px;
+                height: 36px;
+                margin: 0 4px;
+            }
+    </style>
    <style type="text/css">.adthrive-ad{margin-top:10px;margin-bottom:10px;text-align:center;overflow-x:visible;clear:both;line-height:0}</style></head>
    <body class="" style="cursor: auto; overflow: hidden visible;">
       <!--[if lt IE 9]>
@@ -286,6 +355,244 @@
                                  </div>
                               </div>
                               <canvas data-tippy-content="" id="map-canvas" style="background-color: rgb(228, 232, 235); cursor: default;" width="951" height="540" aria-busy="false" aria-expanded="false"></canvas>
+                                 <div id="navMenu" class="hidden">
+                                      <ul>
+                                          <li>
+                                          <button id="seedControlsButton" style="cursor:pointer; height:30px;">
+                                          Seed Controls
+                                          </button>
+                                          </li>
+                                          <div id="seedControlsPanel" class="panel">
+                                              <!-- Add your panel content here -->
+                              				<div class="fancy-row">
+                              					<label for="seed" class="fancy-size">Seed:</label>
+                              					<div class="fancy-inputs">
+                              						<input id="seed" name="seed" class="fancy-size" maxlength="32" type="text" placeholder="Enter the seed of your world">
+                              					</div>
+                              				</div>
+                              				<div class="fancy-row">
+                              					<label for="platform" class="fancy-size">Version:</label>
+                              					<div class="fancy-inputs">
+                              						<select id="platform">
+                              							<optgroup label="Latest Versions">
+                              								<option value="java_1_21">Java 1.21</option>
+                              								<option value="java_1_21_lb">Java 1.21 Large Biomes</option>
+                              								<option value="bedrock_1_21">Bedrock 1.21</option>
+                              							</optgroup>
+                              							<optgroup label="Java Edition">
+                              								<option value="java_1_21">Java 1.21</option>
+                              								<option value="java_1_20">Java 1.20</option>
+                              								<option value="java_1_19_3">Java 1.19.3 - 1.19.4</option>
+                              								<option value="java_1_19">Java 1.19 - 1.19.2</option>
+                              								<option value="java_1_18">Java 1.18</option>
+                              								<option value="java_1_17">Java 1.17</option>
+                              								<option value="java_1_16">Java 1.16</option>
+                              								<option value="java_1_15">Java 1.15</option>
+                              								<option value="java_1_14">Java 1.14</option>
+                              								<option value="java_1_13">Java 1.13</option>
+                              								<option value="java_1_12">Java 1.12</option>
+                              								<option value="java_1_11">Java 1.11</option>
+                              								<option value="java_1_10">Java 1.10</option>
+                              								<option value="java_1_9">Java 1.9</option>
+                              								<option value="java_1_8">Java 1.8</option>
+                              							</optgroup>
+                              							<optgroup label="Bedrock Edition">
+                              								<option value="bedrock_1_21">Bedrock 1.21</option>
+                              								<option value="bedrock_1_20">Bedrock 1.20</option>
+                              								<option value="bedrock_1_19">Bedrock 1.19</option>
+                              								<option value="bedrock_1_18">Bedrock 1.18</option>
+                              								<option value="bedrock_1_17">Bedrock 1.17</option>
+                              								<option value="bedrock_1_16">Bedrock 1.16</option>
+                              								<option value="bedrock_1_15">Bedrock 1.15</option>
+                              								<option value="bedrock_1_14">Bedrock 1.14</option>
+                              							</optgroup>
+                              						</select>
+                              					</div>
+                              				</div>
+                              				<div id="biome-dimension-selection" class="fancy-row">
+                              					<label for="biome-dimension-select">Dimension:</label>
+                              					<div class="fancy-inputs">
+                              						<select id="biome-dimension-select">
+                              							<option value="overworld">Overworld</option>
+                              							<option value="nether">The Nether</option>
+                              							<option value="end">The End</option>
+                              						</select>
+                              					</div>
+                              				</div>
+                                          </div>
+                                          <li>
+                                          <button id="featuresButton" style="cursor:pointer;height:30px;">
+                                          Features
+                                          </button>
+                                          </li>
+                                          <div id="featuresPanel" class="panel">
+                                              <!-- Add your panel content here -->
+                                              <div class="container" id="buttonContainer">
+                              					<button type="button" role="checkbox" title="Biomes" data-poi="biomes" aria-checked="true">
+                              						<div class="chunk-finders-tn-biome-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Biomes</span>
+                              					</button>
+                              					<button aria-checked="true" type="button" role="checkbox" title="Spawn Point" data-poi="spawn" class="">
+                              						<div class="chunk-finders-tn-spawn-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Spawn Point</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Slime Chunk" data-poi="slimeChunk" class="zoom-hidden" aria-checked="true">
+                              						<div class="chunk-finders-tn-slime-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Slime Chunk</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Village" data-poi="village" class="" aria-checked="true">
+                              						<div class="chunk-finders-tn-village2-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Village</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Ancient City" data-poi="ancientCity" aria-checked="true" class="">
+                              						<div class="chunk-finders-tn-ancient-city-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Ancient City</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Dungeon" data-poi="dungeon" class="zoom-hidden">
+                              						<div class="chunk-finders-tn-dungeon-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Dungeon</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Stronghold" data-poi="stronghold" class="">
+                              						<div class="chunk-finders-tn-stronghold-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Stronghold</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Woodland Mansion" data-poi="woodlandMansion" aria-checked="true" class="">
+                              						<div class="chunk-finders-tn-mansion3-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Mansion</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Ocean Monument" data-poi="oceanMonument" aria-checked="true" class="">
+                              						<div class="chunk-finders-tn-ocean-monument2-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Monument</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Pillager Outpost" data-poi="pillagerOutpost" aria-checked="true" class="">
+                              						<div class="chunk-finders-tn-pillager-outpost2-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Outpost</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Mineshaft" data-poi="mineshaft" aria-checked="true" class="">
+                              						<div class="chunk-finders-tn-mineshaft2-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Mineshaft</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Ruined Portal" data-poi="ruinedPortalOverworld" aria-checked="true" class="">
+                              						<div class="chunk-finders-tn-ruined-portal-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Ruined Portal</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Jungle Temple" data-poi="jungleTemple" aria-checked="true" class="">
+                              						<div class="chunk-finders-tn-jungle-temple2-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Jungle Temple</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Desert Temple" data-poi="desertTemple" aria-checked="true" class="">
+                              						<div class="chunk-finders-tn-desert-temple2-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Desert Temple</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Witch Hut" data-poi="witchHut" aria-checked="true" class="">
+                              						<div class="chunk-finders-tn-witch-hut2-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Witch Hut</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Buried Treasure" data-poi="buriedTreasure" aria-checked="true" class="">
+                              						<div class="chunk-finders-tn-buried-treasure-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Buried Treasure</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Shipwreck" data-poi="shipwreck" aria-checked="true" class="">
+                              						<div class="chunk-finders-tn-shipwreck2-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Shipwreck</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Igloo" data-poi="igloo" aria-checked="true" class="">
+                              						<div class="chunk-finders-tn-igloo2-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Igloo</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Ocean Ruins" data-poi="oceanRuin" aria-checked="true" class="">
+                              						<div class="chunk-finders-tn-ocean-ruin-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Ocean Ruins</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Fossil" data-poi="fossil" aria-checked="true" class="zoom-hidden">
+                              						<div class="chunk-finders-tn-fossil-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Fossil</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Cave" data-poi="cave" class="">
+                              						<div class="chunk-finders-tn-cave-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Cave</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Ravine" data-poi="ravine" aria-checked="true" class="zoom-hidden">
+                              						<div class="chunk-finders-tn-ravine-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Ravine</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Underground Lava Pool" data-poi="lavaPool" class="zoom-hidden">
+                              						<div class="chunk-finders-tn-lava-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Lava Pool</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Amethyst Geode" data-poi="amethystGeode" class="zoom-hidden">
+                              						<div class="chunk-finders-tn-amethyst-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Geode</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Enchanted Golden Apple" data-poi="itemOverworld" class="">
+                              						<div class="chunk-finders-tn-golden-apple-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Apple</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Ore Veins" data-poi="oreVein" class="zoom-hidden">
+                              						<div class="chunk-finders-tn-ore-vein-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Ore Veins</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Desert Well" data-poi="desertWell" aria-checked="true" class="">
+                              						<div class="chunk-finders-tn-desert-well-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Desert Well</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Trail Ruins" data-poi="trailRuin" aria-checked="true" class="">
+                              						<div class="chunk-finders-tn-trail-ruin-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Trail Ruins</span>
+                              					</button>
+                              					<button type="button" role="checkbox" title="Trial Chamber" data-poi="trialChamber" aria-checked="true" class="">
+                              						<div class="chunk-finders-tn-trial-chamber-icon_22" role="img"></div>
+                              						<span class="seedmap-layers-name">Trial Chamber</span>
+                              					</button>
+                              				</div>
+                                          </div>
+                                          <li>
+                                          <button id="mapControlsButton" style="cursor:pointer;height:30px;">
+                                          Map Controls
+                                          </button>
+                                          </li>
+                                          <div id="mapControlsPanel" class="panel">
+                                              <!-- Add your panel content here -->
+                                              <div id="map-zoom" title="3.4 blocks per pixel">
+                              					<div id="map-zoom-slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">
+                              						<a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 51.5625%;"></a>
+                              					</div>
+                              				</div>
+                              				<div id="biome-selection" class="fancy-box">
+                              					<label id="biome-checkbox-label">
+                              						<input type="checkbox" id="biome-selection-checkbox"> Highlight biomes
+                              					</label>
+                              					<div id="biome-selection-select-wrap">
+                              						<div class="select2-container select2-container-multi select2-container-disabled" id="s2id_biome-selection-select" style="width: 100%;">
+                              							<ul class="select2-choices">
+                              								<li class="select2-search-field">
+                              									<input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" id="s2id_autogen1" style="width: 336px;" disabled="">
+                              								</li>
+                              							</ul>
+                              						</div>
+                              						<input type="hidden" id="biome-selection-select" multiple="multiple" tabindex="-1" style="" class="select2-offscreen" disabled="">
+                              					</div>
+                              				</div>
+                              				<div id="biome-height-select-box" class="fancy-box">
+                              					<label for="biome-height-select">Biome Height:</label>
+                              					<select id="biome-height-select">
+                              						<option value="depth0">Surface</option>
+                              						<option value="caveDepth">Underground</option>
+                              						<option value="bottom">Bottom (Y -51)</option>
+                              					</select>
+                              				</div>
+                              				<div class="fancy-row slim">
+                              					<label for="map-goto-x">X:</label>
+                              					<input type="text" class="mini" id="map-goto-x" name="map-goto-x">
+                              					<label for="map-goto-z">Z:</label>
+                              					<input type="text" class="mini" id="map-goto-z" name="map-goto-z">
+                              					<button id="map-goto-go" class="gh-button icon pin">Go!</button>
+                              				</div>
+                              				<label id="show-heights-label" class=""> <input type="checkbox" id="show-heights-checkbox"> Terrain </label>
+                              				<label id="show-grid-lines-label"> <input type="checkbox" id="show-grid-lines"> Grid Lines </label>
+                                          </div>
+                                      </ul>
+                                  </div>
                               <div id="map-controls-wrap">
                                  <div id="map-controls" class="full-width" }="">
                                     <div id="map-zoom" title="2.2 blocks per pixel">
@@ -350,7 +657,54 @@
     try{document.querySelector("iframe").remove();}catch(e){}
     try{document.body.querySelectorAll("[class^=adthrive]").forEach((e) => e.remove());}catch(e){}
     },500);
-    </script>  
+    </script>
+   <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', () => {
+          const navMenu = document.getElementById('navMenu');
+          const mapcanvas1 = document.getElementById('map-canvas');
+          
+          const seedControlsPanel = document.getElementById('seedControlsPanel');
+          const featuresPanel = document.getElementById('featuresPanel');
+          const mapControlsPanel = document.getElementById('mapControlsPanel');
+          
+          const seedControlsButton = document.getElementById('seedControlsButton');
+          const featuresButton = document.getElementById('featuresButton');
+          const mapControlsButton = document.getElementById('mapControlsButton');
+      
+          mapcanvas1.addEventListener('mousemove', (event) => {
+              if (event.clientY <= 50) {
+                  navMenu.classList.add('visible');
+              } else {
+                  navMenu.classList.remove('visible');
+              }
+          });
+      
+          seedControlsButton.addEventListener('click', () => {
+          	if(featuresPanel.classList.contains('open'))
+              {featuresPanel.classList.toggle('open');}
+              if(mapControlsPanel.classList.contains('open'))
+              {mapControlsPanel.classList.toggle('open');}
+              
+              seedControlsPanel.classList.toggle('open');
+          });
+          featuresButton.addEventListener('click', () => {
+          	if(seedControlsPanel.classList.contains('open'))
+              {seedControlsPanel.classList.toggle('open');}
+              if(mapControlsPanel.classList.contains('open'))
+              {mapControlsPanel.classList.toggle('open');}
+          
+              featuresPanel.classList.toggle('open');
+          });
+          mapControlsButton.addEventListener('click', () => {
+          	if(featuresPanel.classList.contains('open'))
+              {featuresPanel.classList.toggle('open');}
+              if(seedControlsPanel.classList.contains('open'))
+              {seedControlsPanel.classList.toggle('open');}
+          
+              mapControlsPanel.classList.toggle('open');
+          });
+      });
+      </script>
       <div id="lbOverlay" style="display: none;"></div>
       <div id="lbCenter" style="display: none;">
          <div id="lbImage">
