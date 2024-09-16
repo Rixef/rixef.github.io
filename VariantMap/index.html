@@ -130,6 +130,53 @@
     filter: grayscale(100%);
     user-select: none;
 }
+
+	      /* Custom select CSS*/
+.custom-select-wrapper {
+    position: relative;
+    user-select: none;
+}
+
+.custom-select {
+    position: relative;
+    width: 200px;
+    cursor: pointer;
+}
+
+.custom-select-trigger {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border: 1px solid #00c;
+    border-radius: 4px;
+}
+
+.custom-options {
+    display: none;
+    position: absolute;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    max-height: 150px; /* Set the max-height to make it scrollable */
+  	overflow-y: auto; /* Enable vertical scrolling */
+    z-index: 99;
+}
+
+.custom-option {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.custom-option:hover {
+    background-color: #05c;
+    color: #f1f1f1;
+}
+
+.custom-select.open .custom-options {
+    display: block;
+}
     </style>
    <style type="text/css">.adthrive-ad{margin-top:10px;margin-bottom:10px;text-align:center;overflow-x:visible;clear:both;line-height:0}</style></head>
    <body class="" style="cursor: auto; overflow: hidden visible;">
@@ -399,45 +446,65 @@
                               						<input id="seed" name="seed" class="fancy-size" maxlength="32" type="text" placeholder="Enter the seed of your world">
                               					</div>
                               				</div>
-                              				<div class="fancy-row">
-                              					<label for="platform" class="fancy-size">Version:</label>
-                              					<div class="fancy-inputs">
-                              						<select id="platform">
-                              							<optgroup label="Latest Versions">
-                              								<option value="java_1_21">Java 1.21</option>
-                              								<option value="java_1_21_lb">Java 1.21 Large Biomes</option>
-                              								<option value="bedrock_1_21">Bedrock 1.21</option>
-                              							</optgroup>
-                              							<optgroup label="Java Edition">
-                              								<option value="java_1_21">Java 1.21</option>
-                              								<option value="java_1_20">Java 1.20</option>
-                              								<option value="java_1_19_3">Java 1.19.3 - 1.19.4</option>
-                              								<option value="java_1_19">Java 1.19 - 1.19.2</option>
-                              								<option value="java_1_18">Java 1.18</option>
-                              								<option value="java_1_17">Java 1.17</option>
-                              								<option value="java_1_16">Java 1.16</option>
-                              								<option value="java_1_15">Java 1.15</option>
-                              								<option value="java_1_14">Java 1.14</option>
-                              								<option value="java_1_13">Java 1.13</option>
-                              								<option value="java_1_12">Java 1.12</option>
-                              								<option value="java_1_11">Java 1.11</option>
-                              								<option value="java_1_10">Java 1.10</option>
-                              								<option value="java_1_9">Java 1.9</option>
-                              								<option value="java_1_8">Java 1.8</option>
-                              							</optgroup>
-                              							<optgroup label="Bedrock Edition">
-                              								<option value="bedrock_1_21">Bedrock 1.21</option>
-                              								<option value="bedrock_1_20">Bedrock 1.20</option>
-                              								<option value="bedrock_1_19">Bedrock 1.19</option>
-                              								<option value="bedrock_1_18">Bedrock 1.18</option>
-                              								<option value="bedrock_1_17">Bedrock 1.17</option>
-                              								<option value="bedrock_1_16">Bedrock 1.16</option>
-                              								<option value="bedrock_1_15">Bedrock 1.15</option>
-                              								<option value="bedrock_1_14">Bedrock 1.14</option>
-                              							</optgroup>
-                              						</select>
-                              					</div>
-                              				</div>
+                              				<div class="custom-select-wrapper">
+        <div class="custom-select">
+        	<label for="platform-custom-select"> Version: </label>
+            <div id="platform-custom-select" class="custom-select-trigger">Select an option</div>
+            <div class="custom-options">
+                <optgroup label="Latest Versions">
+                                             <option class="custom-option" value="java_1_21">Java 1.21</option>
+                                             <option class="custom-option" value="java_1_21_lb">Java 1.21 Large Biomes</option>
+                                             <option class="custom-option" value="bedrock_1_21">Bedrock 1.21</option>
+                                          </optgroup>
+                                          <optgroup label="Java Edition">
+                                             <option class="custom-option" value="java_1_21">Java 1.21</option>
+                                             <option class="custom-option" value="java_1_20">Java 1.20</option>
+                                             <option class="custom-option" value="java_1_19_3">Java 1.19.3 - 1.19.4</option>
+                                             <option class="custom-option" value="java_1_19">Java 1.19 - 1.19.2</option>
+                                             <option class="custom-option" value="java_1_18">Java 1.18</option>
+                                             <option class="custom-option" value="java_1_17">Java 1.17</option>
+                                             <option class="custom-option" value="java_1_16">Java 1.16</option>
+                                             <option class="custom-option" value="java_1_15">Java 1.15</option>
+                                             <option class="custom-option" value="java_1_14">Java 1.14</option>
+                                             <option class="custom-option" value="java_1_13">Java 1.13</option>
+                                             <option class="custom-option" value="java_1_12">Java 1.12</option>
+                                             <option class="custom-option" value="java_1_11">Java 1.11</option>
+                                             <option class="custom-option" value="java_1_10">Java 1.10</option>
+                                             <option class="custom-option" value="java_1_9">Java 1.9</option>
+                                             <option class="custom-option" value="java_1_8">Java 1.8</option>
+                                             <option class="custom-option" value="java_1_7">Java 1.7</option>
+                                          </optgroup>
+                                          <optgroup label="Java Edition - Large Biomes">
+                                             <option class="custom-option" value="java_1_21_lb">Java 1.21 (LB)</option>
+                                             <option class="custom-option" value="java_1_20_lb">Java 1.20 (LB)</option>
+                                             <option class="custom-option" value="java_1_19_3_lb">Java 1.19.3 - 1.19.4 (LB)</option>
+                                             <option class="custom-option" value="java_1_19_lb">Java 1.19 - 1.19.2 (LB)</option>
+                                             <option class="custom-option" value="java_1_18_lb">Java 1.18 (LB)</option>
+                                             <option class="custom-option" value="java_1_17_lb">Java 1.17 (LB)</option>
+                                             <option class="custom-option" value="java_1_16_lb">Java 1.16 (LB)</option>
+                                             <option class="custom-option" value="java_1_15_lb">Java 1.15 (LB)</option>
+                                             <option class="custom-option" value="java_1_14_lb">Java 1.14 (LB)</option>
+                                             <option class="custom-option" value="java_1_13_lb">Java 1.13 (LB)</option>
+                                             <option class="custom-option" value="java_1_12_lb">Java 1.12 (LB)</option>
+                                             <option class="custom-option" value="java_1_11_lb">Java 1.11 (LB)</option>
+                                             <option class="custom-option" value="java_1_10_lb">Java 1.10 (LB)</option>
+                                             <option class="custom-option" value="java_1_9_lb">Java 1.9 (LB)</option>
+                                             <option class="custom-option" value="java_1_8_lb">Java 1.8 (LB)</option>
+                                             <option class="custom-option" value="java_1_7_lb">Java 1.7 (LB)</option>
+                                          </optgroup>
+                                          <optgroup label="Bedrock Edition">
+                                             <option class="custom-option" value="bedrock_1_21">Bedrock 1.21</option>
+                                             <option class="custom-option" value="bedrock_1_20_60">Bedrock 1.20.60 - 1.20.81</option>
+                                             <option class="custom-option" value="bedrock_1_20">Bedrock 1.20.0 - 1.20.51</option>
+                                             <option class="custom-option" value="bedrock_1_19">Bedrock 1.19</option>
+                                             <option class="custom-option" value="bedrock_1_18">Bedrock 1.18</option>
+                                             <option class="custom-option" value="bedrock_1_17">Bedrock 1.17</option>
+                                             <option class="custom-option" value="bedrock_1_16">Bedrock 1.16</option>
+                                             <option class="custom-option" value="bedrock_1_14">Bedrock 1.14</option>
+                                          </optgroup>
+            </div>
+        </div>
+    </div>
                               				<div id="biome-dimension-selection" class="fancy-row">
                               					<label for="biome-dimension-select">Dimension:</label>
                               					<div class="fancy-inputs">
@@ -748,6 +815,34 @@ buttons.forEach(button => {
             // Remove the aria-checked attribute
             button.removeAttribute('aria-checked');
         }
+    });
+});
+
+	   //Custom select elements:
+document.addEventListener('DOMContentLoaded', () => {
+    const customSelects = document.querySelectorAll('.custom-select');
+    
+    customSelects.forEach(customSelect => {
+            const customSelectTrigger = customSelect.querySelector('.custom-select-trigger');
+        const customOptions = customSelect.querySelector('.custom-options');
+        const customOptionElements = customOptions.querySelectorAll('.custom-option');
+
+        customSelectTrigger.addEventListener('click', () => {
+            customSelect.classList.toggle('open');
+        });
+
+        customOptionElements.forEach(option => {
+            option.addEventListener('click', () => {
+                customSelectTrigger.textContent = option.textContent;
+                customSelect.classList.remove('open');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!customSelect.contains(e.target)) {
+                customSelect.classList.remove('open');
+            }
+        });
     });
 });
       </script>
