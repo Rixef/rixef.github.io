@@ -101,6 +101,34 @@
                 height: 36px;
                 margin: 0 4px;
             }
+
+            #buttonContainer button[aria-checked=true] {
+    border: 2px solid #4d84ba;
+    box-shadow: 0 0 0 1px #4d84ba;
+    padding: 4px;
+    filter: none;
+}
+
+#buttonContainer button:active, #buttonContainer button:hover, #buttonContainer button[aria-checked=true] {
+    background: #DFEDF5;
+}
+
+#buttonContainer button {
+    height: auto;
+    padding: 5px;
+    margin: 0 4px;
+    box-shadow: 0 0 0 1px #A5CBF1;
+    border: 1px solid #E2EEFB;
+    background: 0 0;
+    white-space: nowrap;
+    text-align: left;
+    color: #123F70;
+    display: flex;
+    align-items: center;
+    line-height: 100%;
+    filter: grayscale(100%);
+    user-select: none;
+}
     </style>
    <style type="text/css">.adthrive-ad{margin-top:10px;margin-bottom:10px;text-align:center;overflow-x:visible;clear:both;line-height:0}</style></head>
    <body class="" style="cursor: auto; overflow: hidden visible;">
@@ -427,7 +455,7 @@
                                           </li>
                                           <div id="featuresPanel" class="panel">
                                               <!-- Add your panel content here -->
-                                              <div class="container" id="seedmap-layers">
+                                              <div class="container" id="buttonContainer">
                               					<button type="button" role="checkbox" title="Biomes" data-poi="biomes" aria-checked="true">
                               						<div class="chunk-finders-tn-biome-icon_22" role="img"></div>
                               						<span class="seedmap-layers-name">Biomes</span>
@@ -704,6 +732,23 @@
               mapControlsPanel.classList.toggle('open');
           });
       });
+
+         // Select all button elements within #buttonContainer
+const buttons = document.querySelectorAll('#buttonContainer > button');
+
+// Loop through each button and add event listener for the click event
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Check if the aria-checked attribute is not present
+        if (!button.hasAttribute('aria-checked')) {
+            // Add the aria-checked attribute back
+            button.setAttribute('aria-checked', 'true');
+        } else {
+            // Remove the aria-checked attribute
+            button.removeAttribute('aria-checked');
+        }
+    });
+});
       </script>
       <div id="lbOverlay" style="display: none;"></div>
       <div id="lbCenter" style="display: none;">
