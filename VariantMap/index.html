@@ -161,6 +161,19 @@
             .custom-select.open .custom-options {
             display: block;
             }
+            .grid-container {
+            display: grid;
+            grid-template-columns: 10% 20%;
+            grid-template-rows: auto auto auto;
+            gap: 10px;
+            padding: 20px;
+            }
+            .grid-item {
+            padding: 10px;
+            }
+            .grid-item>label {
+            font-weight: bold;
+            }
         </style>
         <style type="text/css">.adthrive-ad{margin-top:10px;margin-bottom:10px;text-align:center;overflow-x:visible;clear:both;line-height:0}</style>
     </head>
@@ -425,79 +438,89 @@
                                                 </li>
                                                 <div id="seedControlsPanel" class="panel">
                                                     <!-- Add your panel content here -->
-                                                    <div class="fancy-row">
-                                                        <label for="seed" class="fancy-size">Seed:</label>
-                                                        <div class="fancy-inputs">
-                                                            <input id="seed" name="seed" class="fancy-size" maxlength="32" type="text" placeholder="Enter the seed of your world" readOnly>
-                                                        </div>
-                                                    </div>
-                                                    <div class="custom-select-wrapper">
-                                                        <div class="custom-select">
-                                                            <label for="platform-custom-select"> Version: </label>
-                                                            <div id="platform-custom-select" class="custom-select-trigger">Select an option</div>
-                                                            <div class="custom-options">
-                                                                <optgroup label="Latest Versions">
-                                                                    <option class="custom-option" value="java_1_21">Java 1.21</option>
-                                                                    <option class="custom-option" value="java_1_21_lb">Java 1.21 Large Biomes</option>
-                                                                    <option class="custom-option" value="bedrock_1_21">Bedrock 1.21</option>
-                                                                </optgroup>
-                                                                <optgroup label="Java Edition">
-                                                                    <option class="custom-option" value="java_1_21">Java 1.21</option>
-                                                                    <option class="custom-option" value="java_1_20">Java 1.20</option>
-                                                                    <option class="custom-option" value="java_1_19_3">Java 1.19.3 - 1.19.4</option>
-                                                                    <option class="custom-option" value="java_1_19">Java 1.19 - 1.19.2</option>
-                                                                    <option class="custom-option" value="java_1_18">Java 1.18</option>
-                                                                    <option class="custom-option" value="java_1_17">Java 1.17</option>
-                                                                    <option class="custom-option" value="java_1_16">Java 1.16</option>
-                                                                    <option class="custom-option" value="java_1_15">Java 1.15</option>
-                                                                    <option class="custom-option" value="java_1_14">Java 1.14</option>
-                                                                    <option class="custom-option" value="java_1_13">Java 1.13</option>
-                                                                    <option class="custom-option" value="java_1_12">Java 1.12</option>
-                                                                    <option class="custom-option" value="java_1_11">Java 1.11</option>
-                                                                    <option class="custom-option" value="java_1_10">Java 1.10</option>
-                                                                    <option class="custom-option" value="java_1_9">Java 1.9</option>
-                                                                    <option class="custom-option" value="java_1_8">Java 1.8</option>
-                                                                    <option class="custom-option" value="java_1_7">Java 1.7</option>
-                                                                </optgroup>
-                                                                <optgroup label="Java Edition - Large Biomes">
-                                                                    <option class="custom-option" value="java_1_21_lb">Java 1.21 (LB)</option>
-                                                                    <option class="custom-option" value="java_1_20_lb">Java 1.20 (LB)</option>
-                                                                    <option class="custom-option" value="java_1_19_3_lb">Java 1.19.3 - 1.19.4 (LB)</option>
-                                                                    <option class="custom-option" value="java_1_19_lb">Java 1.19 - 1.19.2 (LB)</option>
-                                                                    <option class="custom-option" value="java_1_18_lb">Java 1.18 (LB)</option>
-                                                                    <option class="custom-option" value="java_1_17_lb">Java 1.17 (LB)</option>
-                                                                    <option class="custom-option" value="java_1_16_lb">Java 1.16 (LB)</option>
-                                                                    <option class="custom-option" value="java_1_15_lb">Java 1.15 (LB)</option>
-                                                                    <option class="custom-option" value="java_1_14_lb">Java 1.14 (LB)</option>
-                                                                    <option class="custom-option" value="java_1_13_lb">Java 1.13 (LB)</option>
-                                                                    <option class="custom-option" value="java_1_12_lb">Java 1.12 (LB)</option>
-                                                                    <option class="custom-option" value="java_1_11_lb">Java 1.11 (LB)</option>
-                                                                    <option class="custom-option" value="java_1_10_lb">Java 1.10 (LB)</option>
-                                                                    <option class="custom-option" value="java_1_9_lb">Java 1.9 (LB)</option>
-                                                                    <option class="custom-option" value="java_1_8_lb">Java 1.8 (LB)</option>
-                                                                    <option class="custom-option" value="java_1_7_lb">Java 1.7 (LB)</option>
-                                                                </optgroup>
-                                                                <optgroup label="Bedrock Edition">
-                                                                    <option class="custom-option" value="bedrock_1_21">Bedrock 1.21</option>
-                                                                    <option class="custom-option" value="bedrock_1_20_60">Bedrock 1.20.60 - 1.20.81</option>
-                                                                    <option class="custom-option" value="bedrock_1_20">Bedrock 1.20.0 - 1.20.51</option>
-                                                                    <option class="custom-option" value="bedrock_1_19">Bedrock 1.19</option>
-                                                                    <option class="custom-option" value="bedrock_1_18">Bedrock 1.18</option>
-                                                                    <option class="custom-option" value="bedrock_1_17">Bedrock 1.17</option>
-                                                                    <option class="custom-option" value="bedrock_1_16">Bedrock 1.16</option>
-                                                                    <option class="custom-option" value="bedrock_1_14">Bedrock 1.14</option>
-                                                                </optgroup>
+                                                    <div class="grid-container">
+                                                        <div class="grid-item label">Seed:</div>
+                                                        <div class="grid-item content">
+                                                            <div class="custom-select-wrapper">
+                                                                <div class="custom-select">
+                                                                    <input id="seed" name="seed" class="custom-select-trigger" maxlength="32" type="text" placeholder="Enter the seed of your world" readonly="" style="
+                                                                        ">
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="custom-select-wrapper">
-                                                        <div class="custom-select">
-                                                            <label for="biome-dimension-custom-select"> Dimension: </label>
-                                                            <div id="biome-dimension-custom-select" class="custom-select-trigger">Select an option</div>
-                                                            <div class="custom-options">
-                                                                <option class="custom-option" value="overworld">Overworld</option>
-                                                                <option class="custom-option" value="nether">The Nether</option>
-                                                                <option class="custom-option" value="end">The End</option>
+                                                        <div class="grid-item label">Version:</div>
+                                                        <div class="grid-item content">
+                                                            <div class="custom-select-wrapper">
+                                                                <div class="custom-select">
+                                                                    <div id="platform-custom-select" class="custom-select-trigger" style="
+                                                                        ">Bedrock 1.21</div>
+                                                                    <div class="custom-options">
+                                                                        <optgroup label="Latest Versions">
+                                                                            <option class="custom-option" value="java_1_21">Java 1.21</option>
+                                                                            <option class="custom-option" value="java_1_21_lb">Java 1.21 Large Biomes</option>
+                                                                            <option class="custom-option" value="bedrock_1_21">Bedrock 1.21</option>
+                                                                        </optgroup>
+                                                                        <optgroup label="Java Edition">
+                                                                            <option class="custom-option" value="java_1_21">Java 1.21</option>
+                                                                            <option class="custom-option" value="java_1_20">Java 1.20</option>
+                                                                            <option class="custom-option" value="java_1_19_3">Java 1.19.3 - 1.19.4</option>
+                                                                            <option class="custom-option" value="java_1_19">Java 1.19 - 1.19.2</option>
+                                                                            <option class="custom-option" value="java_1_18">Java 1.18</option>
+                                                                            <option class="custom-option" value="java_1_17">Java 1.17</option>
+                                                                            <option class="custom-option" value="java_1_16">Java 1.16</option>
+                                                                            <option class="custom-option" value="java_1_15">Java 1.15</option>
+                                                                            <option class="custom-option" value="java_1_14">Java 1.14</option>
+                                                                            <option class="custom-option" value="java_1_13">Java 1.13</option>
+                                                                            <option class="custom-option" value="java_1_12">Java 1.12</option>
+                                                                            <option class="custom-option" value="java_1_11">Java 1.11</option>
+                                                                            <option class="custom-option" value="java_1_10">Java 1.10</option>
+                                                                            <option class="custom-option" value="java_1_9">Java 1.9</option>
+                                                                            <option class="custom-option" value="java_1_8">Java 1.8</option>
+                                                                            <option class="custom-option" value="java_1_7">Java 1.7</option>
+                                                                        </optgroup>
+                                                                        <optgroup label="Java Edition - Large Biomes">
+                                                                            <option class="custom-option" value="java_1_21_lb">Java 1.21 (LB)</option>
+                                                                            <option class="custom-option" value="java_1_20_lb">Java 1.20 (LB)</option>
+                                                                            <option class="custom-option" value="java_1_19_3_lb">Java 1.19.3 - 1.19.4 (LB)</option>
+                                                                            <option class="custom-option" value="java_1_19_lb">Java 1.19 - 1.19.2 (LB)</option>
+                                                                            <option class="custom-option" value="java_1_18_lb">Java 1.18 (LB)</option>
+                                                                            <option class="custom-option" value="java_1_17_lb">Java 1.17 (LB)</option>
+                                                                            <option class="custom-option" value="java_1_16_lb">Java 1.16 (LB)</option>
+                                                                            <option class="custom-option" value="java_1_15_lb">Java 1.15 (LB)</option>
+                                                                            <option class="custom-option" value="java_1_14_lb">Java 1.14 (LB)</option>
+                                                                            <option class="custom-option" value="java_1_13_lb">Java 1.13 (LB)</option>
+                                                                            <option class="custom-option" value="java_1_12_lb">Java 1.12 (LB)</option>
+                                                                            <option class="custom-option" value="java_1_11_lb">Java 1.11 (LB)</option>
+                                                                            <option class="custom-option" value="java_1_10_lb">Java 1.10 (LB)</option>
+                                                                            <option class="custom-option" value="java_1_9_lb">Java 1.9 (LB)</option>
+                                                                            <option class="custom-option" value="java_1_8_lb">Java 1.8 (LB)</option>
+                                                                            <option class="custom-option" value="java_1_7_lb">Java 1.7 (LB)</option>
+                                                                        </optgroup>
+                                                                        <optgroup label="Bedrock Edition">
+                                                                            <option class="custom-option" value="bedrock_1_21">Bedrock 1.21</option>
+                                                                            <option class="custom-option" value="bedrock_1_20_60">Bedrock 1.20.60 - 1.20.81</option>
+                                                                            <option class="custom-option" value="bedrock_1_20">Bedrock 1.20.0 - 1.20.51</option>
+                                                                            <option class="custom-option" value="bedrock_1_19">Bedrock 1.19</option>
+                                                                            <option class="custom-option" value="bedrock_1_18">Bedrock 1.18</option>
+                                                                            <option class="custom-option" value="bedrock_1_17">Bedrock 1.17</option>
+                                                                            <option class="custom-option" value="bedrock_1_16">Bedrock 1.16</option>
+                                                                            <option class="custom-option" value="bedrock_1_14">Bedrock 1.14</option>
+                                                                        </optgroup>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="grid-item label">Dimension:</div>
+                                                        <div class="grid-item content">
+                                                            <div class="custom-select-wrapper">
+                                                                <div class="custom-select">
+                                                                    <div id="biome-dimension-custom-select" class="custom-select-trigger" style="">Overworld</div>
+                                                                    <div class="custom-options">
+                                                                        <option class="custom-option" value="overworld">Overworld</option>
+                                                                        <option class="custom-option" value="nether">The Nether</option>
+                                                                        <option class="custom-option" value="end">The End</option>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -759,134 +782,135 @@
             },500);
         </script>
         <script type="text/javascript">
-		function cppSelectVersionChange(i)
-		{
-			document.querySelector("select#platform").selectedIndex = i;
-			document.querySelector("select#platform").dispatchEvent(new Event('change'));
-		}
-		function cppSelectDimensionChange(i)
-		{
-			document.querySelector("select#biome-dimension-select").selectedIndex = i;
-			document.querySelector("select#biome-dimension-select").dispatchEvent(new Event('change'));
-		}
-		function cppSelectBiomeHeightChange(i)
-		{
-			document.querySelector("select#biome-height-select").selectedIndex = i;
-			document.querySelector("select#biome-height-select").dispatchEvent(new Event('change'));
-		}
-		function goToMapCoords(x, z)
-		{
-			document.querySelector("#map-goto-x").value = x;
-			document.querySelector("#map-goto-z").value = z;
-			document.querySelector("#map-goto-go").click();
-		}
-            document.addEventListener('DOMContentLoaded', () => {
-             const navMenu = document.getElementById('navMenu');
-             const mapcanvas1 = document.getElementById('map-canvas');
-             
-             const seedControlsPanel = document.getElementById('seedControlsPanel');
-             const featuresPanel = document.getElementById('featuresPanel');
-             const mapControlsPanel = document.getElementById('mapControlsPanel');
-             
-             const seedControlsButton = document.getElementById('seedControlsButton');
-             const featuresButton = document.getElementById('featuresButton');
-             const mapControlsButton = document.getElementById('mapControlsButton');
-			 
-			 //additional:
-			 const gridlinesCBL = document.querySelectorAll('label#show-grid-lines-label')[0];
-			 const gridlinesCB = document.querySelectorAll('label#show-grid-lines-label')[0].querySelector('input');
-         
-             mapcanvas1.addEventListener('mousemove', (event) => {
-                 if (event.clientY <= 50) {
-                     navMenu.classList.add('visible');
-                 } else {
-                     navMenu.classList.remove('visible');
-                 }
-             });
-         
-             seedControlsButton.addEventListener('click', () => {
-             	if(featuresPanel.classList.contains('open'))
-                 {featuresPanel.classList.toggle('open');}
-                 if(mapControlsPanel.classList.contains('open'))
-                 {mapControlsPanel.classList.toggle('open');}
-                 
-                 seedControlsPanel.classList.toggle('open');
-             });
-             featuresButton.addEventListener('click', () => {
-             	if(seedControlsPanel.classList.contains('open'))
-                 {seedControlsPanel.classList.toggle('open');}
-                 if(mapControlsPanel.classList.contains('open'))
-                 {mapControlsPanel.classList.toggle('open');}
-             
-                 featuresPanel.classList.toggle('open');
-             });
-             mapControlsButton.addEventListener('click', () => {
-             	if(featuresPanel.classList.contains('open'))
-                 {featuresPanel.classList.toggle('open');}
-                 if(seedControlsPanel.classList.contains('open'))
-                 {seedControlsPanel.classList.toggle('open');}
-             
-                 mapControlsPanel.classList.toggle('open');
-             });
-			 
-			 gridlinesCBL.addEventListener('click', () => {
-				document.querySelectorAll('label#show-grid-lines-label')[1].click();
-			 });
-			 gridlinesCB.addEventListener('click', () => {
-				document.querySelectorAll('label#show-grid-lines-label')[1].click();
-			 });
-         });
-            
-            // Select all button elements within #buttonContainer
-            const buttons = document.querySelectorAll('#buttonContainer > button');
-            
-            // Loop through each button and add event listener for the click event
-            buttons.forEach(button => {
-            button.addEventListener('click', function() {
-              // Check if the aria-checked attribute is not present
-              if (!button.hasAttribute('aria-checked')) {
-                  // Add the aria-checked attribute back
-                  button.setAttribute('aria-checked', 'true');
-              } else {
-                  // Remove the aria-checked attribute
-                  button.removeAttribute('aria-checked');
-              }
+            function cppSelectVersionChange(i)
+            {
+            	document.querySelector("select#platform").selectedIndex = i;
+            	document.querySelector("select#platform").dispatchEvent(new Event('change'));
+            }
+            function cppSelectDimensionChange(i)
+            {
+            	document.querySelector("select#biome-dimension-select").selectedIndex = i;
+            	document.querySelector("select#biome-dimension-select").dispatchEvent(new Event('change'));
+            }
+            function cppSelectBiomeHeightChange(i)
+            {
+            	document.querySelector("select#biome-height-select").selectedIndex = i;
+            	document.querySelector("select#biome-height-select").dispatchEvent(new Event('change'));
+            }
+            function goToMapCoords(x, z)
+            {
+            	document.querySelector("#map-goto-x").value = x;
+            	document.querySelector("#map-goto-z").value = z;
+            	document.querySelector("#map-goto-go").click();
+            }
+                      document.addEventListener('DOMContentLoaded', () => {
+                       const navMenu = document.getElementById('navMenu');
+                       const mapcanvas1 = document.getElementById('map-canvas');
+                       
+                       const seedControlsPanel = document.getElementById('seedControlsPanel');
+                       const featuresPanel = document.getElementById('featuresPanel');
+                       const mapControlsPanel = document.getElementById('mapControlsPanel');
+                       
+                       const seedControlsButton = document.getElementById('seedControlsButton');
+                       const featuresButton = document.getElementById('featuresButton');
+                       const mapControlsButton = document.getElementById('mapControlsButton');
+            	 
+            	 //additional:
+            	 const gridlinesCBL = document.querySelectorAll('label#show-grid-lines-label')[0];
+            	 const gridlinesCB = document.querySelectorAll('label#show-grid-lines-label')[0].querySelector('input');
+                   
+                       mapcanvas1.addEventListener('mousemove', (event) => {
+                           if (event.clientY <= 50) {
+                               navMenu.classList.add('visible');
+                           } else {
+                               navMenu.classList.remove('visible');
+                           }
+                       });
+                   
+                       seedControlsButton.addEventListener('click', () => {
+                       	if(featuresPanel.classList.contains('open'))
+                           {featuresPanel.classList.toggle('open');}
+                           if(mapControlsPanel.classList.contains('open'))
+                           {mapControlsPanel.classList.toggle('open');}
+                           
+                           seedControlsPanel.classList.toggle('open');
+                       });
+                       featuresButton.addEventListener('click', () => {
+                       	if(seedControlsPanel.classList.contains('open'))
+                           {seedControlsPanel.classList.toggle('open');}
+                           if(mapControlsPanel.classList.contains('open'))
+                           {mapControlsPanel.classList.toggle('open');}
+                       
+                           featuresPanel.classList.toggle('open');
+                       });
+                       mapControlsButton.addEventListener('click', () => {
+                       	if(featuresPanel.classList.contains('open'))
+                           {featuresPanel.classList.toggle('open');}
+                           if(seedControlsPanel.classList.contains('open'))
+                           {seedControlsPanel.classList.toggle('open');}
+                       
+                           mapControlsPanel.classList.toggle('open');
+                       });
+            	 
+            	 gridlinesCBL.addEventListener('click', () => {
+            		document.querySelectorAll('label#show-grid-lines-label')[1].click();
+            	 });
+            	 gridlinesCB.addEventListener('click', () => {
+            		document.querySelectorAll('label#show-grid-lines-label')[1].click();
+            	 });
+                   });
+                      
+                      // Select all button elements within #buttonContainer
+                      const buttons = document.querySelectorAll('#buttonContainer > button');
+                      
+                      // Loop through each button and add event listener for the click event
+                      buttons.forEach(button => {
+                      button.addEventListener('click', function() {
+                        // Check if the aria-checked attribute is not present
+                        if (!button.hasAttribute('aria-checked')) {
+                            // Add the aria-checked attribute back
+                            button.setAttribute('aria-checked', 'true');
+                        } else {
+                            // Remove the aria-checked attribute
+                            button.removeAttribute('aria-checked');
+                        }
+                      });
+                      });
+                      
+                      //Custom select elements:
+                      document.addEventListener('DOMContentLoaded', () => {
+                      const customSelects = document.querySelectorAll('.custom-select');
+                      
+                      customSelects.forEach(customSelect => {
+                            const customSelectTrigger = customSelect.querySelector('.custom-select-trigger');
+                        const customOptions = customSelect.querySelector('.custom-options');
+                        const customOptionElements = customOptions.querySelectorAll('.custom-option');
+                      
+                        customSelectTrigger.addEventListener('click', () => {
+                            customSelect.classList.toggle('open');
+                        });
+                      
+            customOptionElements.forEach((option, optionIndex) => {
+            	option.addEventListener('click', () => {
+            		if(customSelectTrigger.id === 'platform-custom-select')
+            			cppSelectVersionChange(optionIndex);
+            		else if(customSelectTrigger.id === 'biome-dimension-custom-select')
+            			cppSelectDimensionChange(optionIndex);
+            		else if(customSelectTrigger.id === 'biome-height-custom-select')
+            			cppSelectBiomeHeightChange(optionIndex);
+            		customSelectTrigger.textContent = option.textContent;
+            		customSelect.classList.remove('open');
+            	});
             });
-            });
-            
-            //Custom select elements:
-            document.addEventListener('DOMContentLoaded', () => {
-            const customSelects = document.querySelectorAll('.custom-select');
-            
-            customSelects.forEach(customSelect => {
-                  const customSelectTrigger = customSelect.querySelector('.custom-select-trigger');
-              const customOptions = customSelect.querySelector('.custom-options');
-              const customOptionElements = customOptions.querySelectorAll('.custom-option');
-            
-              customSelectTrigger.addEventListener('click', () => {
-                  customSelect.classList.toggle('open');
-              });
-            
-		customOptionElements.forEach((option, optionIndex) => {
-			option.addEventListener('click', () => {
-				if(customSelectTrigger.id === 'platform-custom-select')
-					cppSelectVersionChange(optionIndex);
-				else if(customSelectTrigger.id === 'biome-dimension-custom-select')
-					cppSelectDimensionChange(optionIndex);
-				else if(customSelectTrigger.id === 'biome-height-custom-select')
-					cppSelectBiomeHeightChange(optionIndex);
-				customSelectTrigger.textContent = option.textContent;
-				customSelect.classList.remove('open');
-			});
-		});
-            
-              document.addEventListener('click', (e) => {
-                  if (!customSelect.contains(e.target)) {
-                      customSelect.classList.remove('open');
-                  }
-              });
-            });
-            });
+                      
+                        document.addEventListener('click', (e) => {
+                            if (!customSelect.contains(e.target)) {
+                                customSelect.classList.remove('open');
+                            }
+                        });
+                      });
+                      });
+                  
         </script>
         <div id="lbOverlay" style="display: none;"></div>
         <div id="lbCenter" style="display: none;">
