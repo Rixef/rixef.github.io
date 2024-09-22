@@ -759,6 +759,27 @@
             },500);
         </script>
         <script type="text/javascript">
+		function cppSelectVersionChange(i)
+		{
+			document.querySelector("select#platform").selectedIndex = i;
+			document.querySelector("select#platform").dispatchEvent(new Event('change'));
+		}
+		function cppSelectDimensionChange(i)
+		{
+			document.querySelector("select#biome-dimension-select").selectedIndex = i;
+			document.querySelector("select#biome-dimension-select").dispatchEvent(new Event('change'));
+		}
+		function cppSelectBiomeHeightChange(i)
+		{
+			document.querySelector("select#biome-height-select").selectedIndex = i;
+			document.querySelector("select#biome-height-select").dispatchEvent(new Event('change'));
+		}
+		function goToMapCoords(x, z)
+		{
+			document.querySelector("#map-goto-x").value = x;
+			document.querySelector("#map-goto-z").value = z;
+			document.querySelector("#map-goto-go").click();
+		}
             document.addEventListener('DOMContentLoaded', () => {
              const navMenu = document.getElementById('navMenu');
              const mapcanvas1 = document.getElementById('map-canvas');
