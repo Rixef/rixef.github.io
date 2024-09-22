@@ -893,11 +893,11 @@
             customOptionElements.forEach((option, optionIndex) => {
             	option.addEventListener('click', () => {
             		if(customSelectTrigger.id === 'platform-custom-select')
-            			cppSelectVersionChange(optionIndex);
+                    {cppSelectVersionChange(optionIndex);}
             		else if(customSelectTrigger.id === 'biome-dimension-custom-select')
-            			cppSelectDimensionChange(optionIndex);
+                    {cppSelectDimensionChange(optionIndex);}
             		else if(customSelectTrigger.id === 'biome-height-custom-select')
-            			cppSelectBiomeHeightChange(optionIndex);
+                    {cppSelectBiomeHeightChange(optionIndex);}
             		customSelectTrigger.textContent = option.textContent;
             		customSelect.classList.remove('open');
             	});
