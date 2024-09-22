@@ -832,8 +832,13 @@
                        mapcanvas1.addEventListener('mousemove', (event) => {
                            if (event.clientY <= 50) {
                                navMenu.classList.add('visible');
-                           } else {
-                               navMenu.classList.remove('visible');
+                           }
+                           else 
+                           {
+                                if(featuresPanel.classList.contains('open') || seedControlsPanel.classList.contains('open') || mapControlsPanel.classList.contains('open'))
+                                {}
+                                else
+                                {navMenu.classList.remove('visible');}
                            }
                        });
                    
