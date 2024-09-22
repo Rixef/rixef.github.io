@@ -772,7 +772,7 @@
                  const mapControlsButton = document.getElementById('mapControlsButton');
     			 
     			 //additional:
-    			 const gridlinesCB = document.querySelectorAll('label#show-grid-lines-label')[0];
+    			 const gridlinesCB = document.querySelectorAll('label#show-grid-lines-label')[0].firstChild;
              
                  mapcanvas1.addEventListener('mousemove', (event) => {
                      if (event.clientY <= 50) {
