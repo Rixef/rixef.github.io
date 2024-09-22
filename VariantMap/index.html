@@ -846,12 +846,18 @@
                   customSelect.classList.toggle('open');
               });
             
-              customOptionElements.forEach(option => {
-                  option.addEventListener('click', () => {
-                      customSelectTrigger.textContent = option.textContent;
-                      customSelect.classList.remove('open');
-                  });
-              });
+		customOptionElements.forEach((option, optionIndex) => {
+			option.addEventListener('click', () => {
+				if(customSelectTrigger.id === 'platform-custom-select')
+					cppSelectVersionChange(optionIndex);
+				else if(customSelectTrigger.id === 'biome-dimension-custom-select')
+					cppSelectDimensionChange(optionIndex);
+				else if(customSelectTrigger.id === 'biome-height-custom-select')
+					cppSelectBiomeHeightChange(optionIndex);
+				customSelectTrigger.textContent = option.textContent;
+				customSelect.classList.remove('open');
+			});
+		});
             
               document.addEventListener('click', (e) => {
                   if (!customSelect.contains(e.target)) {
