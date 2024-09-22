@@ -760,52 +760,59 @@
         </script>
         <script type="text/javascript">
             document.addEventListener('DOMContentLoaded', () => {
-                const navMenu = document.getElementById('navMenu');
-                const mapcanvas1 = document.getElementById('map-canvas');
-                
-                const seedControlsPanel = document.getElementById('seedControlsPanel');
-                const featuresPanel = document.getElementById('featuresPanel');
-                const mapControlsPanel = document.getElementById('mapControlsPanel');
-                
-                const seedControlsButton = document.getElementById('seedControlsButton');
-                const featuresButton = document.getElementById('featuresButton');
-                const mapControlsButton = document.getElementById('mapControlsButton');
+                 const navMenu = document.getElementById('navMenu');
+                 const mapcanvas1 = document.getElementById('map-canvas');
+                 
+                 const seedControlsPanel = document.getElementById('seedControlsPanel');
+                 const featuresPanel = document.getElementById('featuresPanel');
+                 const mapControlsPanel = document.getElementById('mapControlsPanel');
+                 
+                 const seedControlsButton = document.getElementById('seedControlsButton');
+                 const featuresButton = document.getElementById('featuresButton');
+                 const mapControlsButton = document.getElementById('mapControlsButton');
+    			 
+    			 //additional:
+    			 const gridlinesCB = document.querySelectorAll('label#show-grid-lines-label')[0];
+             
+                 mapcanvas1.addEventListener('mousemove', (event) => {
+                     if (event.clientY <= 50) {
+                         navMenu.classList.add('visible');
+                     } else {
+                         navMenu.classList.remove('visible');
+                     }
+                 });
+             
+                 seedControlsButton.addEventListener('click', () => {
+                 	if(featuresPanel.classList.contains('open'))
+                     {featuresPanel.classList.toggle('open');}
+                     if(mapControlsPanel.classList.contains('open'))
+                     {mapControlsPanel.classList.toggle('open');}
+                     
+                     seedControlsPanel.classList.toggle('open');
+                 });
+                 featuresButton.addEventListener('click', () => {
+                 	if(seedControlsPanel.classList.contains('open'))
+                     {seedControlsPanel.classList.toggle('open');}
+                     if(mapControlsPanel.classList.contains('open'))
+                     {mapControlsPanel.classList.toggle('open');}
+                 
+                     featuresPanel.classList.toggle('open');
+                 });
+                 mapControlsButton.addEventListener('click', () => {
+                 	if(featuresPanel.classList.contains('open'))
+                     {featuresPanel.classList.toggle('open');}
+                     if(seedControlsPanel.classList.contains('open'))
+                     {seedControlsPanel.classList.toggle('open');}
+                 
+                     mapControlsPanel.classList.toggle('open');
+                 });
+    			 
+    			 gridlinesCB.addEventListener('click', () => {
+    				document.querySelectorAll('label#show-grid-lines-label')[1].click();
+    			 });
+             });
             
-                mapcanvas1.addEventListener('mousemove', (event) => {
-                    if (event.clientY <= 50) {
-                        navMenu.classList.add('visible');
-                    } else {
-                        navMenu.classList.remove('visible');
-                    }
-                });
-            
-                seedControlsButton.addEventListener('click', () => {
-                	if(featuresPanel.classList.contains('open'))
-                    {featuresPanel.classList.toggle('open');}
-                    if(mapControlsPanel.classList.contains('open'))
-                    {mapControlsPanel.classList.toggle('open');}
-                    
-                    seedControlsPanel.classList.toggle('open');
-                });
-                featuresButton.addEventListener('click', () => {
-                	if(seedControlsPanel.classList.contains('open'))
-                    {seedControlsPanel.classList.toggle('open');}
-                    if(mapControlsPanel.classList.contains('open'))
-                    {mapControlsPanel.classList.toggle('open');}
-                
-                    featuresPanel.classList.toggle('open');
-                });
-                mapControlsButton.addEventListener('click', () => {
-                	if(featuresPanel.classList.contains('open'))
-                    {featuresPanel.classList.toggle('open');}
-                    if(seedControlsPanel.classList.contains('open'))
-                    {seedControlsPanel.classList.toggle('open');}
-                
-                    mapControlsPanel.classList.toggle('open');
-                });
-            });
-            
-               // Select all button elements within #buttonContainer
+            // Select all button elements within #buttonContainer
             const buttons = document.querySelectorAll('#buttonContainer > button');
             
             // Loop through each button and add event listener for the click event
