@@ -666,13 +666,13 @@
                                                     Map Controls
                                                     </button>
                                                 </li>
-                                                <div id="mapControlsPanel" class="panel">
+                                                <div id="mapControlsPanel" class="panel open" style="">
                                                     <!-- Add your panel content here -->
-                                                    <div id="biome-selection" class="fancy-box">
-                                                        <label id="biome-checkbox-label">
+                                                    <div id="biome-selection" class="fancy-box" style="">
+                                                        <label id="biome-checkbox-label" style="">
                                                         <input type="checkbox" id="biome-selection-checkbox"> Highlight biomes
                                                         </label>
-                                                        <div id="biome-selection-select-wrap">
+                                                        <div id="biome-selection-select-wrap" style="">
                                                             <div class="select2-container select2-container-multi select2-container-disabled" id="s2id_biome-selection-select" style="width: 100%;">
                                                                 <ul class="select2-choices">
                                                                     <li class="select2-search-field">
@@ -680,7 +680,13 @@
                                                                     </li>
                                                                 </ul>
                                                             </div>
-                                                            <input type="hidden" id="biome-selection-select" multiple="multiple" tabindex="-1" style="" class="select2-offscreen" disabled="">
+                                                            <div class="select2-container select2-container-multi select2-container-disabled" id="s2id_biome-selection-select" style="width: 100%;margin-top: -90px;">
+                                                                <ul class="select2-choices" style="
+                                                                    ">
+                                                                    <li class="select2-search-field">    <input type="text" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false" class="select2-input" id="s2id_autogen1" tabindex="-1" style="width: 10px;" disabled="">  </li>
+                                                                </ul>
+                                                            </div>
+                                                            <input type="hidden" id="biome-selection-select" multiple="multiple" tabindex="-1" style="" class="select2-offscreen" value="" disabled="">
                                                         </div>
                                                     </div>
                                                     <div id="biome-height-select-box" class="fancy-box">
@@ -696,28 +702,34 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="">
+                                                    <div class="" style="">
                                                         <label for="map-goto-x">X:</label>
                                                         <input type="text" class="mini" id="map-goto-x" name="map-goto-x">
                                                         <label for="map-goto-z">Z:</label>
                                                         <input type="text" class="mini" id="map-goto-z" name="map-goto-z">
                                                         <button id="map-goto-go" class="gh-button icon pin">📌Go!</button>
                                                     </div>
-                                                    <div class="container" id="buttonContainer">
-                                                        <button onclick="document.querySelector('label#show-heights-label').click();" type="button" role="checkbox" title="Terrain" data-poi="terrainheight">Terrain
-                                                        <div class="" role="img"></div>
+                                                    <br>
+                                                    <div class="container2" id="buttonContainer" style="">
+                                                        <button onclick="document.querySelector('label#show-heights-label').click();" type="button" role="checkbox" title="Terrain" data-poi="terrainheight">
+                                                            Terrain
+                                                            <div class="" role="img"></div>
                                                         </button>
-                                                        <button onclick="document.querySelector('label#show-grid-lines-label').click();" type="button" role="checkbox" title="Grid Lines" data-poi="gridlines">Grid Lines<div class="" role="img"></div>
-                                                        </button><button onclick="" type="button" role="checkbox" title="Tracks your location on the map(just like a locator map in game)" data-poi="locatormap"><div class="chunk-finders-tn-spawn-icon_22" role="img"></div>
-                                                        <span class="seedmap-layers-name">Locator Map</span>
+                                                        <button onclick="document.querySelector('label#show-grid-lines-label').click();" type="button" role="checkbox" title="Grid Lines" data-poi="gridlines">
+                                                            Grid Lines
+                                                            <div class="" role="img"></div>
+                                                        </button>
+                                                        <button onclick="" type="button" role="checkbox" title="Tracks your location on the map(just like a locator map in game)" data-poi="locatormap">
+                                                            <div class="chunk-finders-tn-spawn-icon_22" role="img"></div>
+                                                            <span class="seedmap-layers-name">Locator Map</span>
                                                         </button>
                                                         <button onclick="" type="button" role="checkbox" title="Right Click Map Teleport (right click anywhere on the map to tp there)" data-poi="rightclickmapteleport">
-                                                        <div class="chunk-finders-tn-end-gateway-icon_22" role="img"></div>
-                                                        <span class="seedmap-layers-name">RCMTP</span>
+                                                            <div class="chunk-finders-tn-end-gateway-icon_22" role="img"></div>
+                                                            <span class="seedmap-layers-name">RCMTP</span>
                                                         </button>
                                                     </div>
                                                     <label id="show-heights-label" class="" style="position: absolute; top: -100%;"> <input type="checkbox" id="show-heights-checkbox"></label>
-                                                    <label id="show-grid-lines-label" hidden> <input type="checkbox" id="show-grid-lines"> Grid Lines </label>
+                                                    <label id="show-grid-lines-label" hidden=""> <input type="checkbox" id="show-grid-lines"> Grid Lines </label>
                                                 </div>
                                             </ul>
                                         </div>
