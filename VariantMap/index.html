@@ -705,7 +705,7 @@
                                                         <input type="text" class="mini" id="map-goto-x1" name="map-goto-x">
                                                         <label for="map-goto-z1">Z:</label>
                                                         <input type="text" class="mini" id="map-goto-z1" name="map-goto-z">
-                                                        <button id="map-goto-go1" class="gh-button icon pin">📌Go!</button>
+                                                        <button onclick="goToMapCoords(document.querySelector('input#map-goto-x1').value,document.querySelector('input#map-goto-z1').value);" id="map-goto-go1" class="gh-button icon pin">📌Go!</button>
                                                     </div>
                                                     <br>
                                                     <div class="container2" id="buttonContainer" style="margin-top: 10px;">
