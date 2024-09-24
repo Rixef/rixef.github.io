@@ -751,12 +751,12 @@
                                                     <br>
                                                     <div class="container2" id="buttonContainer" style="margin-top: 10px;">
                                                         <button onclick="document.querySelector('label#show-heights-label').click();" type="button" role="checkbox" title="Terrain" data-poi="terrainheight">
-                                                            Terrain
                                                             <div class="" role="img"></div>
+							    <span class="seedmap-layers-name">Terrain</span>
                                                         </button>
                                                         <button onclick="document.querySelector('label#show-grid-lines-label').click();" type="button" role="checkbox" title="Grid Lines" data-poi="gridlines">
-                                                            Grid Lines
                                                             <div class="" role="img"></div>
+							    <span class="seedmap-layers-name">Grid Lines</span>
                                                         </button>
                                                         <button onclick="" type="button" role="checkbox" title="Tracks your location on the map(just like a locator map in game)" data-poi="locatormap">
                                                             <div class="chunk-finders-tn-spawn-icon_22" role="img"></div>
@@ -965,7 +965,6 @@
 						// If we're checking Terrain then enable RCMTP so that it can be checked or unchecked again
 						if(button.querySelector('span').textContent === 'Terrain')
 						{button.nextElementSibling.nextElementSibling.nextElementSibling.disabled = false;}
-						
 						
 						if(button.querySelector('span').textContent === 'Locator Map' || button.querySelector('span').textContent === 'RCMTP')
 						{window.chrome.webview.postMessage(button.querySelector('span').textContent + " checked");}
