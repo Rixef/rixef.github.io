@@ -117,6 +117,9 @@
             #buttonContainer button:active, #buttonContainer button:hover, #buttonContainer button[aria-checked=true] {
             background: #DFEDF5;
             }
+	    #buttonContainer button[disabled]{
+                background: 0 0;
+            }
             #buttonContainer button {
             height: auto;
             padding: 5px;
@@ -759,7 +762,7 @@
                                                             <div class="chunk-finders-tn-spawn-icon_22" role="img"></div>
                                                             <span class="seedmap-layers-name">Locator Map</span>
                                                         </button>
-                                                        <button onclick="" type="button" role="checkbox" title="Right Click Map Teleport (right click anywhere on the map to tp there)" data-poi="rightclickmapteleport">
+                                                        <button onclick="" type="button" role="checkbox" title="Right Click Map Teleport (right click anywhere on the map to tp there)" data-poi="rightclickmapteleport" disabled>
                                                             <div class="chunk-finders-tn-end-gateway-icon_22" role="img"></div>
                                                             <span class="seedmap-layers-name">RCMTP</span>
                                                         </button>
@@ -959,12 +962,24 @@
 						// Add the aria-checked attribute back
 						button.setAttribute('aria-checked', 'true');
 						
+						// If we're checking Terrain then enable RCMTP so that it can be checked or unchecked again
+						if(button.querySelector('span').textContent === 'Terrain')
+						{button.nextElementSibling.nextElementSibling.nextElementSibling.disabled = false;}
+						
+						
 						if(button.querySelector('span').textContent === 'Locator Map' || button.querySelector('span').textContent === 'RCMTP')
 						{window.chrome.webview.postMessage(button.querySelector('span').textContent + " checked");}
 					}
 					else {
 						// Remove the aria-checked attribute
 						button.removeAttribute('aria-checked');
+						
+						if(button.querySelector('span').textContent === 'Terrain')
+						{
+							// If we're unchecking Terrain then uncheck and disable RCMTP as well
+							button.nextElementSibling.nextElementSibling.nextElementSibling.removeAttribute('aria-checked');
+							button.nextElementSibling.nextElementSibling.nextElementSibling.disabled = true;
+						}
 						
 						if(button.querySelector('span').textContent === 'Locator Map' || button.querySelector('span').textContent === 'RCMTP')
 						{window.chrome.webview.postMessage(button.querySelector('span').textContent + " unchecked");}
