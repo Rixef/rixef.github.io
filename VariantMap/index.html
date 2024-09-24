@@ -956,12 +956,18 @@
 				button.addEventListener('click', function() {
 					// Check if the aria-checked attribute is not present
 					if (!button.hasAttribute('aria-checked')) {
-					// Add the aria-checked attribute back
-					button.setAttribute('aria-checked', 'true');
+						// Add the aria-checked attribute back
+						button.setAttribute('aria-checked', 'true');
+						
+						if(button.querySelector('span').textContent === 'Locator Map' || button.querySelector('span').textContent === 'RCMTP')
+						{window.chrome.webview.postMessage(button.querySelector('span').textContent + " checked");}
 					}
 					else {
-					// Remove the aria-checked attribute
-					button.removeAttribute('aria-checked');
+						// Remove the aria-checked attribute
+						button.removeAttribute('aria-checked');
+						
+						if(button.querySelector('span').textContent === 'Locator Map' || button.querySelector('span').textContent === 'RCMTP')
+						{window.chrome.webview.postMessage(button.querySelector('span').textContent + " unchecked");}
 					}
 				});
 			});
