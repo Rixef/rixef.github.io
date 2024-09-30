@@ -465,8 +465,9 @@ button.fancy-submit:active{
 }*/
 @media all and (max-width:500px){
     #map-canvas{
-        width:calc(100% + 16px);
-        margin-left:-16px
+        width: calc(100% + 170px);
+        margin-left: -90px;
+        margin-top: -100px;
     }
     /*html.theater-map #map-canvas{
         width:calc(100% + 32px);
