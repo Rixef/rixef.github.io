@@ -868,9 +868,12 @@
             }
             function goToMapCoords(x, z)
             {
-            	document.querySelector("#map-goto-x").value = x;
-            	document.querySelector("#map-goto-z").value = z;
-            	document.querySelector("#map-goto-go").click();
+		if(customSelectOpen == false)
+		{
+			document.querySelector("#map-goto-x").value = x;
+	            	document.querySelector("#map-goto-z").value = z;
+	            	document.querySelector("#map-goto-go").click();
+		}
             }
 			
 			document.addEventListener('DOMContentLoaded', () => {
@@ -987,6 +990,7 @@
 			});
 			
 			//Custom select elements:
+			var customSelectOpen = false;
 			document.addEventListener('DOMContentLoaded', () => {
 				const customSelects = document.querySelectorAll('.custom-select');
 
@@ -997,6 +1001,7 @@
 
 					customSelectTrigger.addEventListener('click', () => {
 						customSelect.classList.toggle('open');
+						customSelectOpen = true;
 					});
 
 					customOptionElements.forEach((option, optionIndex) => {
@@ -1018,12 +1023,14 @@
 							}
 							customSelectTrigger.textContent = option.textContent;
 							customSelect.classList.remove('open');
+							customSelectOpen = false;
 						});
 					});
 
 					document.addEventListener('click', (e) => {
 					if (!customSelect.contains(e.target)) {
 						customSelect.classList.remove('open');
+						customSelectOpen = false;
 					}
 					});
 				});
