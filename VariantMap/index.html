@@ -1002,11 +1002,20 @@
 					customOptionElements.forEach((option, optionIndex) => {
 						option.addEventListener('click', () => {
 							if(customSelectTrigger.id === 'platform-custom-select')
-							{cppSelectVersionChange(optionIndex);}
+							{
+								cppSelectVersionChange(optionIndex);
+								window.chrome.webview.postMessage("vjsselectversionchanged;"+option.textContent);
+							}
 							else if(customSelectTrigger.id === 'biome-dimension-custom-select')
-							{cppSelectDimensionChange(optionIndex);}
+							{
+								cppSelectDimensionChange(optionIndex);
+								window.chrome.webview.postMessage("vjsselectdimensionchanged;"+option.textContent);
+							}
 							else if(customSelectTrigger.id === 'biome-height-custom-select')
-							{cppSelectBiomeHeightChange(optionIndex);}
+							{
+								cppSelectBiomeHeightChange(optionIndex);
+								window.chrome.webview.postMessage("vjsselectbiomeheightchanged;"+option.textContent);
+							}
 							customSelectTrigger.textContent = option.textContent;
 							customSelect.classList.remove('open');
 						});
