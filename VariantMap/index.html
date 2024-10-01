@@ -1001,7 +1001,10 @@
 
 					customSelectTrigger.addEventListener('click', () => {
 						customSelect.classList.toggle('open');
-						customSelectOpen = true;
+						if(customSelect.classList.contains('open'))
+						{customSelectOpen = true;}
+						else
+						{customSelectOpen = false;}
 					});
 
 					customOptionElements.forEach((option, optionIndex) => {
