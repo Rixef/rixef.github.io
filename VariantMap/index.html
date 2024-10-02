@@ -870,9 +870,24 @@
             {
 		if(customSelectOpen === false)
 		{
-			document.querySelector("#map-goto-x").value = x;
+			if(x < 0)
+			{gotoxyoink.high = -1;}
+			else
+			{gotoxyoink.high = 0;}
+			if(z < 0)
+			{gotozyoink.high = -1;}
+			else
+			{gotozyoink.high = 0;}
+			
+			gotoxyoink.low = x;
+			gotozyoink.low = z;
+			mapcanvasviewportyoink.setCenter(gotoxyoink,gotozyoink);
+			mapcanvasviewportyoink.setPin(gotoxyoink,gotozyoink);
+			mapcanvasyoink.redraw();
+			
+			/*document.querySelector("#map-goto-x").value = x;
 	            	document.querySelector("#map-goto-z").value = z;
-	            	document.querySelector("#map-goto-go").click();
+	            	document.querySelector("#map-goto-go").click();*/
 		}
             }
 			
@@ -1030,12 +1045,12 @@
 						});
 					});
 
-					/*document.addEventListener('click', (e) => {
+					document.addEventListener('click', (e) => {
 					if (!customSelect.contains(e.target)) {
 						customSelect.classList.remove('open');
 						customSelectOpen = false;
 					}
-					});*/
+					});
 				});
 			});
         </script>
