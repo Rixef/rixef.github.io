@@ -117,8 +117,8 @@
             #buttonContainer button:active, #buttonContainer button:hover, #buttonContainer button[aria-checked=true] {
             background: #DFEDF5;
             }
-	    #buttonContainer button[disabled]{
-                background: 0 0;
+            #buttonContainer button[disabled]{
+            background: 0 0;
             }
             #buttonContainer button {
             height: auto;
@@ -670,7 +670,7 @@
                                                         </button>
                                                     </div>
                                                 </div>
-												<div id="featuresPanel-theNether" class="panel">
+                                                <div id="featuresPanel-theNether" class="panel">
                                                     <!-- Add your panel content here -->
                                                     <div class="container" id="buttonContainer">
                                                         <button onclick="document.querySelector('div.chunk-finders-tn-biome-icon_22').click();" type="button" role="checkbox" title="Biomes" data-poi="biomes" aria-checked="true">
@@ -691,7 +691,7 @@
                                                         </button>
                                                     </div>
                                                 </div>
-												<div id="featuresPanel-theEnd" class="panel">
+                                                <div id="featuresPanel-theEnd" class="panel">
                                                     <!-- Add your panel content here -->
                                                     <div class="container" id="buttonContainer">
                                                         <button onclick="document.querySelector('div.chunk-finders-tn-biome-icon_22').click();" type="button" role="checkbox" title="Biomes" data-poi="biomes" aria-checked="true">
@@ -752,11 +752,11 @@
                                                     <div class="container2" id="buttonContainer" style="margin-top: 10px;">
                                                         <button onclick="document.querySelector('label#show-heights-label').click();" type="button" role="checkbox" title="Terrain" data-poi="terrainheight">
                                                             <div class="" role="img"></div>
-							    <span class="seedmap-layers-name">Terrain</span>
+                                                            <span class="seedmap-layers-name">Terrain</span>
                                                         </button>
                                                         <button onclick="document.querySelector('label#show-grid-lines-label').click();" type="button" role="checkbox" title="Grid Lines" data-poi="gridlines">
                                                             <div class="" role="img"></div>
-							    <span class="seedmap-layers-name">Grid Lines</span>
+                                                            <span class="seedmap-layers-name">Grid Lines</span>
                                                         </button>
                                                         <button onclick="" type="button" role="checkbox" title="Tracks your location on the map(just like a locator map in game)" data-poi="locatormap">
                                                             <div class="chunk-finders-tn-spawn-icon_22" role="img"></div>
@@ -868,210 +868,171 @@
             }
             function goToMapCoords(x, z)
             {
-		if(document.querySelectorAll('div#navMenu>ul>div.panel.open').length === 0)
-		{
-			document.querySelector("input#map-goto-x1").value = x;
-			document.querySelector("input#map-goto-z1").value = z;
-			
-			document.querySelector("input#map-goto-x").value = x;
-			document.querySelector("input#map-goto-z").value = z;
-			document.querySelector("button#map-goto-go").click();
-			
-			/*if(x < 0)
-			{gotoxyoink.high = -1;}
-			else
-			{gotoxyoink.high = 0;}
-			if(z < 0)
-			{gotozyoink.high = -1;}
-			else
-			{gotozyoink.high = 0;}
-
-			document.querySelector("input#map-goto-x").value = x;
-			document.querySelector("input#map-goto-z").value = z;
-			document.querySelector("input#map-goto-x1").value = x;
-			document.querySelector("input#map-goto-z1").value = z;
-			
-			gotoxyoink.low = x;
-			gotozyoink.low = z;
-			saveD.goTo(savea,gotoxyoink,gotozyoink,saved);*/
-			//mapcanvasviewportyoink.setCenter(gotoxyoink,gotozyoink);
-			//mapcanvasviewportyoink.setPin(gotoxyoink,gotozyoink);
-			//mapcanvasyoink.redraw();
-		}
+            if(document.querySelectorAll('div#navMenu>ul>div.panel.open').length === 0)
+            {
+            document.querySelector("input#map-goto-x1").value = x;
+            document.querySelector("input#map-goto-z1").value = z;
+            
+            document.querySelector("input#map-goto-x").value = x;
+            document.querySelector("input#map-goto-z").value = z;
+            document.querySelector("button#map-goto-go").click();
             }
-	    function initgoto()
-	    {
-	        document.querySelector("input#map-goto-x1").value = 0;
-		document.querySelector("input#map-goto-z1").value = 10;
-		    
-		document.querySelector("input#map-goto-x").value = 0;
-		document.querySelector("input#map-goto-z").value = 10;
-		document.querySelector("button#map-goto-go").click();
-	    }
-	    initgoto();
-			
-			document.addEventListener('DOMContentLoaded', () => {
-				try{document.querySelectorAll('div.select2-container')[0].remove();}catch(e){}
-				const navMenu = document.getElementById('navMenu');
-				const mapcanvas1 = document.getElementById('map-canvas');
-
-				const seedControlsPanel = document.getElementById('seedControlsPanel');
-				const featuresPanelOverworld = document.getElementById('featuresPanel-overworld');
-				const featuresPanelTheNether = document.getElementById('featuresPanel-theNether');
-				const featuresPanelTheEnd = document.getElementById('featuresPanel-theEnd');
-				const mapControlsPanel = document.getElementById('mapControlsPanel');
-
-				const seedControlsButton = document.getElementById('seedControlsButton');
-				const featuresButton = document.getElementById('featuresButton');
-				const mapControlsButton = document.getElementById('mapControlsButton');
-
-				//additional:
-				const gridlinesCBL = document.querySelectorAll('label#show-grid-lines-label')[0];
-				const gridlinesCB = document.querySelectorAll('label#show-grid-lines-label')[0].querySelector('input');
-
-				mapcanvas1.addEventListener('mousemove', (event) => {
-					if (event.clientY <= 50) {
-						navMenu.classList.add('visible');
-					}
-					else 
-					{
-						if(featuresPanelOverworld.classList.contains('open') || featuresPanelTheNether.classList.contains('open') || featuresPanelTheEnd.classList.contains('open') || seedControlsPanel.classList.contains('open') || mapControlsPanel.classList.contains('open'))
-						{}
-						else
-						{navMenu.classList.remove('visible');}
-					}
-				});
-
-				seedControlsButton.addEventListener('click', () => {
-					if(featuresPanelOverworld.classList.contains('open'))
-					{featuresPanelOverworld.classList.toggle('open');}
-					else if(featuresPanelTheNether.classList.contains('open'))
-					{featuresPanelTheNether.classList.toggle('open');}
-					else if(featuresPanelTheEnd.classList.contains('open'))
-					{featuresPanelTheEnd.classList.toggle('open');}
-					if(mapControlsPanel.classList.contains('open'))
-					{mapControlsPanel.classList.toggle('open');}
-
-					seedControlsPanel.classList.toggle('open');
-				});
-				featuresButton.addEventListener('click', () => {
-					if(seedControlsPanel.classList.contains('open'))
-					{seedControlsPanel.classList.toggle('open');}
-					if(mapControlsPanel.classList.contains('open'))
-					{mapControlsPanel.classList.toggle('open');}
-					
-					if(document.querySelector('div#biome-dimension-custom-select').textContent === 'Overworld')
-					{featuresPanelOverworld.classList.toggle('open');}
-					else if(document.querySelector('div#biome-dimension-custom-select').textContent === 'The Nether')
-					{featuresPanelTheNether.classList.toggle('open');}
-					else if(document.querySelector('div#biome-dimension-custom-select').textContent === 'The End')
-					{featuresPanelTheEnd.classList.toggle('open');}
-				});
-				mapControlsButton.addEventListener('click', () => {
-					if(featuresPanelOverworld.classList.contains('open'))
-					{featuresPanelOverworld.classList.toggle('open');}
-					else if(featuresPanelTheNether.classList.contains('open'))
-					{featuresPanelTheNether.classList.toggle('open');}
-					else if(featuresPanelTheEnd.classList.contains('open'))
-					{featuresPanelTheEnd.classList.toggle('open');}
-					if(seedControlsPanel.classList.contains('open'))
-					{seedControlsPanel.classList.toggle('open');}
-
-					mapControlsPanel.classList.toggle('open');
-				});
-
-				gridlinesCBL.addEventListener('click', () => {
-					document.querySelectorAll('label#show-grid-lines-label')[1].click();
-				});
-				gridlinesCB.addEventListener('click', () => {
-					document.querySelectorAll('label#show-grid-lines-label')[1].click();
-				});
-			});
-			
-			// Select all button elements within #buttonContainer
-			const buttons = document.querySelectorAll('#buttonContainer > button');
-
-			// Loop through each button and add event listener for the click event
-			buttons.forEach(button => {
-				button.addEventListener('click', function() {
-					// Check if the aria-checked attribute is not present
-					if (!button.hasAttribute('aria-checked')) {
-						// Add the aria-checked attribute back
-						button.setAttribute('aria-checked', 'true');
-						
-						// If we're checking Terrain then enable RCMTP so that it can be checked or unchecked again
-						if(button.querySelector('span').textContent === 'Terrain')
-						{button.nextElementSibling.nextElementSibling.nextElementSibling.disabled = false;}
-						
-						if(button.querySelector('span').textContent === 'Locator Map' || button.querySelector('span').textContent === 'RCMTP')
-						{window.chrome.webview.postMessage(button.querySelector('span').textContent + " checked");}
-					}
-					else {
-						// Remove the aria-checked attribute
-						button.removeAttribute('aria-checked');
-						
-						if(button.querySelector('span').textContent === 'Terrain')
-						{
-							// If we're unchecking Terrain then uncheck and disable RCMTP as well
-							button.nextElementSibling.nextElementSibling.nextElementSibling.removeAttribute('aria-checked');
-							button.nextElementSibling.nextElementSibling.nextElementSibling.disabled = true;
-						}
-						
-						if(button.querySelector('span').textContent === 'Locator Map' || button.querySelector('span').textContent === 'RCMTP')
-						{window.chrome.webview.postMessage(button.querySelector('span').textContent + " unchecked");}
-					}
-				});
-			});
-			
-			//Custom select elements:
-			var customSelectOpen = false;
-			document.addEventListener('DOMContentLoaded', () => {
-				const customSelects = document.querySelectorAll('.custom-select');
-
-				customSelects.forEach(customSelect => {
-					const customSelectTrigger = customSelect.querySelector('.custom-select-trigger');
-					const customOptions = customSelect.querySelector('.custom-options');
-					const customOptionElements = customOptions.querySelectorAll('.custom-option');
-
-					customSelectTrigger.addEventListener('click', () => {
-						customSelect.classList.toggle('open');
-						if(customSelect.classList.contains('open'))
-						{customSelectOpen = true;}
-						else
-						{customSelectOpen = false;}
-					});
-
-					customOptionElements.forEach((option, optionIndex) => {
-						option.addEventListener('click', () => {
-							if(customSelectTrigger.id === 'platform-custom-select')
-							{
-								cppSelectVersionChange(optionIndex);
-								window.chrome.webview.postMessage("vjsselectversionchanged;"+option.textContent);
-							}
-							else if(customSelectTrigger.id === 'biome-dimension-custom-select')
-							{
-								cppSelectDimensionChange(optionIndex);
-								window.chrome.webview.postMessage("vjsselectdimensionchanged;"+option.textContent);
-							}
-							else if(customSelectTrigger.id === 'biome-height-custom-select')
-							{
-								cppSelectBiomeHeightChange(optionIndex);
-								window.chrome.webview.postMessage("vjsselectbiomeheightchanged;"+option.textContent);
-							}
-							customSelectTrigger.textContent = option.textContent;
-							customSelect.classList.remove('open');
-							customSelectOpen = false;
-						});
-					});
-
-					document.addEventListener('click', (e) => {
-					if (!customSelect.contains(e.target)) {
-						customSelect.classList.remove('open');
-						customSelectOpen = false;
-					}
-					});
-				});
-			});
+            }
+            document.addEventListener('DOMContentLoaded', () => {
+            try{document.querySelectorAll('div.select2-container')[0].remove();}catch(e){}
+            const navMenu = document.getElementById('navMenu');
+            const mapcanvas1 = document.getElementById('map-canvas');
+            
+            const seedControlsPanel = document.getElementById('seedControlsPanel');
+            const featuresPanelOverworld = document.getElementById('featuresPanel-overworld');
+            const featuresPanelTheNether = document.getElementById('featuresPanel-theNether');
+            const featuresPanelTheEnd = document.getElementById('featuresPanel-theEnd');
+            const mapControlsPanel = document.getElementById('mapControlsPanel');
+            
+            const seedControlsButton = document.getElementById('seedControlsButton');
+            const featuresButton = document.getElementById('featuresButton');
+            const mapControlsButton = document.getElementById('mapControlsButton');
+            
+            //additional:
+            const gridlinesCBL = document.querySelectorAll('label#show-grid-lines-label')[0];
+            const gridlinesCB = document.querySelectorAll('label#show-grid-lines-label')[0].querySelector('input');
+            
+            mapcanvas1.addEventListener('mousemove', (event) => {
+            if (event.clientY <= 50) {
+            navMenu.classList.add('visible');
+            }
+            else 
+            {
+            if(featuresPanelOverworld.classList.contains('open') || featuresPanelTheNether.classList.contains('open') || featuresPanelTheEnd.classList.contains('open') || seedControlsPanel.classList.contains('open') || mapControlsPanel.classList.contains('open'))
+            {}
+            else
+            {navMenu.classList.remove('visible');}
+            }
+            });
+            
+            seedControlsButton.addEventListener('click', () => {
+            if(featuresPanelOverworld.classList.contains('open'))
+            {featuresPanelOverworld.classList.toggle('open');}
+            else if(featuresPanelTheNether.classList.contains('open'))
+            {featuresPanelTheNether.classList.toggle('open');}
+            else if(featuresPanelTheEnd.classList.contains('open'))
+            {featuresPanelTheEnd.classList.toggle('open');}
+            if(mapControlsPanel.classList.contains('open'))
+            {mapControlsPanel.classList.toggle('open');}
+            
+            seedControlsPanel.classList.toggle('open');
+            });
+            featuresButton.addEventListener('click', () => {
+            if(seedControlsPanel.classList.contains('open'))
+            {seedControlsPanel.classList.toggle('open');}
+            if(mapControlsPanel.classList.contains('open'))
+            {mapControlsPanel.classList.toggle('open');}
+            
+            if(document.querySelector('div#biome-dimension-custom-select').textContent === 'Overworld')
+            {featuresPanelOverworld.classList.toggle('open');}
+            else if(document.querySelector('div#biome-dimension-custom-select').textContent === 'The Nether')
+            {featuresPanelTheNether.classList.toggle('open');}
+            else if(document.querySelector('div#biome-dimension-custom-select').textContent === 'The End')
+            {featuresPanelTheEnd.classList.toggle('open');}
+            });
+            mapControlsButton.addEventListener('click', () => {
+            if(featuresPanelOverworld.classList.contains('open'))
+            {featuresPanelOverworld.classList.toggle('open');}
+            else if(featuresPanelTheNether.classList.contains('open'))
+            {featuresPanelTheNether.classList.toggle('open');}
+            else if(featuresPanelTheEnd.classList.contains('open'))
+            {featuresPanelTheEnd.classList.toggle('open');}
+            if(seedControlsPanel.classList.contains('open'))
+            {seedControlsPanel.classList.toggle('open');}
+            
+            mapControlsPanel.classList.toggle('open');
+            });
+            
+            gridlinesCBL.addEventListener('click', () => {
+            document.querySelectorAll('label#show-grid-lines-label')[1].click();
+            });
+            gridlinesCB.addEventListener('click', () => {
+            document.querySelectorAll('label#show-grid-lines-label')[1].click();
+            });
+            });
+            
+            // Select all button elements within #buttonContainer
+            const buttons = document.querySelectorAll('#buttonContainer > button');
+            
+            // Loop through each button and add event listener for the click event
+            buttons.forEach(button => {
+            button.addEventListener('click', function() {
+            // Check if the aria-checked attribute is not present
+            if (!button.hasAttribute('aria-checked')) {
+            // Add the aria-checked attribute back
+            button.setAttribute('aria-checked', 'true');
+            
+            // If we're checking Terrain then enable RCMTP so that it can be checked or unchecked again
+            if(button.querySelector('span').textContent === 'Terrain')
+            {button.nextElementSibling.nextElementSibling.nextElementSibling.disabled = false;}
+            
+            if(button.querySelector('span').textContent === 'Locator Map' || button.querySelector('span').textContent === 'RCMTP')
+            {window.chrome.webview.postMessage(button.querySelector('span').textContent + " checked");}
+            }
+            else {
+            // Remove the aria-checked attribute
+            button.removeAttribute('aria-checked');
+            
+            if(button.querySelector('span').textContent === 'Terrain')
+            {
+            // If we're unchecking Terrain then uncheck and disable RCMTP as well
+            button.nextElementSibling.nextElementSibling.nextElementSibling.removeAttribute('aria-checked');
+            button.nextElementSibling.nextElementSibling.nextElementSibling.disabled = true;
+            }
+            
+            if(button.querySelector('span').textContent === 'Locator Map' || button.querySelector('span').textContent === 'RCMTP')
+            {window.chrome.webview.postMessage(button.querySelector('span').textContent + " unchecked");}
+            }
+            });
+            });
+            
+            //Custom select elements:
+            document.addEventListener('DOMContentLoaded', () => {
+            const customSelects = document.querySelectorAll('.custom-select');
+            
+            customSelects.forEach(customSelect => {
+            const customSelectTrigger = customSelect.querySelector('.custom-select-trigger');
+            const customOptions = customSelect.querySelector('.custom-options');
+            const customOptionElements = customOptions.querySelectorAll('.custom-option');
+            
+            customSelectTrigger.addEventListener('click', () => {
+            customSelect.classList.toggle('open');
+            });
+            
+            customOptionElements.forEach((option, optionIndex) => {
+            option.addEventListener('click', () => {
+            if(customSelectTrigger.id === 'platform-custom-select')
+            {
+            cppSelectVersionChange(optionIndex);
+            window.chrome.webview.postMessage("vjsselectversionchanged;"+option.textContent);
+            }
+            else if(customSelectTrigger.id === 'biome-dimension-custom-select')
+            {
+            cppSelectDimensionChange(optionIndex);
+            window.chrome.webview.postMessage("vjsselectdimensionchanged;"+option.textContent);
+            }
+            else if(customSelectTrigger.id === 'biome-height-custom-select')
+            {
+            cppSelectBiomeHeightChange(optionIndex);
+            window.chrome.webview.postMessage("vjsselectbiomeheightchanged;"+option.textContent);
+            }
+            customSelectTrigger.textContent = option.textContent;
+            customSelect.classList.remove('open');
+            });
+            });
+            
+            document.addEventListener('click', (e) => {
+            if (!customSelect.contains(e.target)) {
+            customSelect.classList.remove('open');
+            }
+            });
+            });
+            });
         </script>
         <div id="lbOverlay" style="display: none;"></div>
         <div id="lbCenter" style="display: none;">
