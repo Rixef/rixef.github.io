@@ -868,9 +868,16 @@
             }
             function goToMapCoords(x, z)
             {
-		if(customSelectOpen === false)
+		if(document.querySelectorAll('div#navMenu>ul>div.panel.open').length === 0)
 		{
-			if(x < 0)
+			document.querySelector("input#map-goto-x1").value = x;
+			document.querySelector("input#map-goto-z1").value = z;
+			
+			document.querySelector("input#map-goto-x").value = x;
+			document.querySelector("input#map-goto-z").value = z;
+			document.querySelector("button#map-goto-go").click();
+			
+			/*if(x < 0)
 			{gotoxyoink.high = -1;}
 			else
 			{gotoxyoink.high = 0;}
@@ -886,7 +893,7 @@
 			
 			gotoxyoink.low = x;
 			gotozyoink.low = z;
-			saveD.goTo(savea,gotoxyoink,gotozyoink,saved);
+			saveD.goTo(savea,gotoxyoink,gotozyoink,saved);*/
 			//mapcanvasviewportyoink.setCenter(gotoxyoink,gotozyoink);
 			//mapcanvasviewportyoink.setPin(gotoxyoink,gotozyoink);
 			//mapcanvasyoink.redraw();
