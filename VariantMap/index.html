@@ -884,12 +884,15 @@
 			mapcanvasviewportyoink.setCenter(gotoxyoink,gotozyoink);
 			mapcanvasviewportyoink.setPin(gotoxyoink,gotozyoink);
 			mapcanvasyoink.redraw();
-			
-			/*document.querySelector("#map-goto-x").value = x;
-	            	document.querySelector("#map-goto-z").value = z;
-	            	document.querySelector("#map-goto-go").click();*/
 		}
             }
+	    function initgoto()
+	    {
+		document.querySelector("#map-goto-x").value = 0;
+		document.querySelector("#map-goto-z").value = 0;
+		document.querySelector("#map-goto-go").click();
+	    }
+	    initgoto();
 			
 			document.addEventListener('DOMContentLoaded', () => {
 				try{document.querySelectorAll('div.select2-container')[0].remove();}catch(e){}
