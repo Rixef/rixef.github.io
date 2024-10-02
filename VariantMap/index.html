@@ -878,6 +878,9 @@
 			{gotozyoink.high = -1;}
 			else
 			{gotozyoink.high = 0;}
+
+			document.querySelector("input#map-goto-x").value = x;
+			document.querySelector("input#map-goto-z").value = z;
 			
 			gotoxyoink.low = x;
 			gotozyoink.low = z;
@@ -888,9 +891,9 @@
             }
 	    function initgoto()
 	    {
-		document.querySelector("#map-goto-x").value = 0;
-		document.querySelector("#map-goto-z").value = 0;
-		document.querySelector("#map-goto-go").click();
+		document.querySelector("input#map-goto-x").value = 0;
+		document.querySelector("input#map-goto-z").value = 0;
+		document.querySelector("button#map-goto-go").click();
 	    }
 	    initgoto();
 			
